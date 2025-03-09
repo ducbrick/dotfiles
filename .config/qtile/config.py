@@ -86,6 +86,9 @@ keys = [
     # Toggle floating
     Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
 
+    # Bring focused window to front
+    Key([mod], "f", lazy.window.bring_to_front(), desc="Bring focused window to front"),
+
     # Reload config
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
 
@@ -141,6 +144,7 @@ for i in groups:
     )
 
 colors = {
+    'Pink': '#f5c2e7',
     'Peach': '#fab387',
     'Yellow': '#f9e2af',
     'Lavender': '#b4befe',
@@ -148,7 +152,7 @@ colors = {
 }
 
 layout_config = {
-    'border_focus': colors['Peach'],
+    'border_focus': colors['Pink'],
     'border_normal': colors['Overlay 0'],
     'border_on_single': True,
     'border_width': 2,
@@ -166,6 +170,7 @@ layouts = [
     # layout.RatioTile(),
     # layout.Tile(),
     layout.Max(**layout_config),
+    # layout.Floating(**layout_config),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
@@ -201,6 +206,7 @@ screens = [
                 # widget.StatusNotifier(),
 
                 widget.Systray(),
+                widget.StatusNotifier(),
                 separator,
                 widget.Battery(format="{char}{percent:2.0%}", charge_char="󰂄",discharge_char="󰁾", empty_char="󱃍", not_charging_char="󰂂", full_char="󰁹", low_foreground="#FF0000", low_percentage=0.2, show_short_text=False),
                 separator,
@@ -247,7 +253,8 @@ floating_layout = layout.Floating(
         Match(title="pinentry"),  # GPG key password entry
         Match(title="Volume Control"),
         Match(title="Bluetooth Devices"),
-    ]
+    ],
+    **layout_config,
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"
