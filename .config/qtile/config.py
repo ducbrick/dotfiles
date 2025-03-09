@@ -141,12 +141,14 @@ for i in groups:
     )
 
 colors = {
+    'Peach': '#fab387',
+    'Yellow': '#f9e2af',
     'Lavender': '#b4befe',
     'Overlay 0': '#6c7086',
 }
 
 layout_config = {
-    'border_focus': colors['Lavender'],
+    'border_focus': colors['Peach'],
     'border_normal': colors['Overlay 0'],
     'border_on_single': True,
     'border_width': 2,
