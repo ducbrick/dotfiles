@@ -70,9 +70,10 @@ keys = [
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod, 'shift'], "Tab", lazy.prev_layout(), desc="Toggle between layouts"),
 
     # Close focused window
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
 
     # Toggle fullscreen
     Key(
@@ -93,6 +94,9 @@ keys = [
 
     # Launch app
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Launch an application"),
+
+    # Switch to window
+    Key([mod], "w", lazy.spawn("rofi -show window"), desc="Switch to a window"),
 
     # Volume control
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%"), desc='Volume Up'),
@@ -131,15 +135,15 @@ for i in groups:
 
 layouts = [
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
+    layout.Bsp(),
     # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
+    layout.MonadTall(),
+    layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
+    layout.Max(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
