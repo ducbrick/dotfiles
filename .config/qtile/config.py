@@ -107,6 +107,13 @@ keys = [
     Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc='Play next'),
 ]
 
+####################################################################################################
+#                                                                                                  #
+# █▀▀ █▀█ █▀█ █ █ █▀█ █▀                                                                           #
+# █▄█ █▀▄ █▄█ █▄█ █▀▀ ▄█                                                                           #
+#                                                                                                  #
+####################################################################################################
+
 groups = [Group(i) for i in "123456789"]
 
 for i in groups:
@@ -133,17 +140,30 @@ for i in groups:
         ]
     )
 
+colors = {
+    'Lavender': '#b4befe',
+    'Overlay 0': '#6c7086',
+}
+
+layout_config = {
+    'border_focus': colors['Lavender'],
+    'border_normal': colors['Overlay 0'],
+    'border_on_single': True,
+    'border_width': 2,
+    'margin': 10,
+
+}
+
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    # Try more layouts by unleashing below layouts.
+    layout.Columns(**layout_config),
+    # layout.MonadTall(**layout_config),
+    layout.MonadWide(**layout_config),
     # layout.Stack(num_stacks=2),
-    layout.Bsp(),
-    # layout.Matrix(),
-    layout.MonadTall(),
-    layout.MonadWide(),
+    layout.Bsp(**layout_config),
+    # layout.Matrix(**layout_config),
     # layout.RatioTile(),
     # layout.Tile(),
-    layout.Max(),
+    layout.Max(**layout_config),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
