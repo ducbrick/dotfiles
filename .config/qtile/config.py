@@ -205,7 +205,7 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
 
-                widget.Systray(),
+                widget.Systray(icon_size=30),
                 widget.StatusNotifier(),
                 separator,
                 widget.Battery(format="{char}{percent:2.0%}", charge_char="󰂄",discharge_char="󰁾", empty_char="󱃍", not_charging_char="󰂂", full_char="󰁹", low_foreground="#FF0000", low_percentage=0.2, show_short_text=False),
@@ -214,7 +214,6 @@ screens = [
                 separator,
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.CurrentLayout(),
-                widget.QuickExit(),
             ],
             40,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders

@@ -6,6 +6,6 @@ configuration {
 	drun-display-format: "{icon} {name}";
 	modi: "window,run,drun";
 	show-icons: true;
-	icon-theme: "Sweet-Rainbow";
+	icon-theme: "Tela-pink-dark";
 	font: "JetBrainsMono Nerd Font Medium 20";
 }
