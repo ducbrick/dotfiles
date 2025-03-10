@@ -78,7 +78,7 @@ keys = [
     # Toggle fullscreen
     Key(
         [mod],
-        "f",
+        "m",
         lazy.window.toggle_fullscreen(),
         desc="Toggle fullscreen on the focused window",
     ),
@@ -144,11 +144,18 @@ for i in groups:
     )
 
 colors = {
+    'Rosewater': '#f5e0dc',
     'Pink': '#f5c2e7',
+    'Maroon': '#eba0ac',
     'Peach': '#fab387',
     'Yellow': '#f9e2af',
     'Lavender': '#b4befe',
+    'Green': '#a6e3a1',
+    'Sapphire': '#74c7ec',
+    'Blue': '#89b4fa',
     'Overlay 0': '#6c7086',
+    'Text': '#cdd6f4',
+    'Crust': '#11111b',
 }
 
 layout_config = {
@@ -186,18 +193,38 @@ layouts = [
 widget_defaults = dict(
     font="JetBrains Mono Nerd Font",
     fontsize=20,
-    padding=3,
+    padding=5,
+    foreground=colors['Crust'],
 )
 extension_defaults = widget_defaults.copy()
 
 task_list = widget.TaskList(parse_text=lambda text: '')
-volume = widget.Volume(volumn_app="pavucontrol", fmt='{}', mute_format='x')
-separator = widget.Sep(linewidth=0, padding=10)
+
+# Widgets
+systray = widget.Systray(background=colors['Blue'])
+
+status_notifier = widget.StatusNotifier(background=colors['Blue'])
+
+blue_green = widget.TextBox(text='', background=colors['Blue'], foreground=colors['Green'], fontsize=31, padding=0)
+
+battery_icon = widget.BatteryIcon(background=colors['Green'], theme_path='~/.config/qtile/icons')
+
+battery = widget.Battery(format="{percent:2.0%}", low_foreground="#FF0000", low_percentage=0.2, show_short_text=False, background=colors['Green'])
+
+green_peach = widget.TextBox(text='', background=colors['Green'], foreground=colors['Peach'], fontsize=31, padding=0)
+
+volume_icon = widget.Volume(volumn_app="pavucontrol", background=colors['Peach'], theme_path='~/.config/qtile/icons', padding=0)
+volume = widget.Volume(volumn_app="pavucontrol", mute_format='Mut', background=colors['Peach'])
+
+peach_pink = widget.TextBox(text='', background=colors['Peach'], foreground=colors['Pink'], fontsize=31, padding=0)
+
+clock = widget.Clock(format="󱛡 %H:%M %a %Y-%m-%d", background = colors['Pink'])
 
 screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.CurrentLayout(),
                 widget.GroupBox(),
 
                 task_list,
@@ -205,15 +232,16 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
 
-                widget.Systray(icon_size=30),
-                widget.StatusNotifier(),
-                separator,
-                widget.Battery(format="{char}{percent:2.0%}", charge_char="󰂄",discharge_char="󰁾", empty_char="󱃍", not_charging_char="󰂂", full_char="󰁹", low_foreground="#FF0000", low_percentage=0.2, show_short_text=False),
-                separator,
+                systray,
+                status_notifier,
+                blue_green,
+                battery_icon,
+                battery,
+                green_peach,
+                volume_icon,
                 volume,
-                separator,
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.CurrentLayout(),
+                peach_pink,
+                clock,
             ],
             40,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
