@@ -97,6 +97,7 @@ keys = [
 
     # Launch app
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Launch an application"),
+    Key([mod, "shift"], "r", lazy.spawn("rofi -show run"), desc="Launch an application"),
 
     # Switch to window
     Key([mod], "w", lazy.spawn("rofi -show window"), desc="Switch to a window"),
@@ -166,24 +167,24 @@ colors = {
 
 layout_config = {
     'border_focus': colors['Pink'],
-    'border_normal': colors['Overlay 0'],
+    'border_normal': colors['Base'],
     'border_on_single': True,
     'border_width': 2,
-    'margin': 10,
+    'margin': 5,
 
 }
 
 layouts = [
     layout.Columns(**layout_config),
+    layout.Max(**layout_config),
+    layout.Bsp(**layout_config),
     # layout.MonadTall(**layout_config),
     layout.MonadWide(**layout_config),
     # layout.Stack(num_stacks=2),
-    layout.Bsp(**layout_config),
     # layout.Matrix(**layout_config),
     # layout.RatioTile(),
     # layout.Tile(),
-    layout.Max(**layout_config),
-    # layout.Floating(**layout_config),
+    layout.Floating(**layout_config),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
@@ -208,9 +209,10 @@ extension_defaults = widget_defaults.copy()
 separator_config = {
     'fontsize': 24,
     'padding': 0,
-    'padding_y': 10
 }
 
+extra_space = widget.Spacer(length = 10,
+                            background = colors['Pink'])
 power_button = widget.Image(filename = '~/.config/qtile/icons/power.png',
                             background = colors['Pink'],
                             mouse_callbacks = {'Button1': lazy.spawn('xfce4-session-logout')},)
@@ -253,7 +255,7 @@ crust_base = widget.TextBox(text = '\uE0B0',
                              **separator_config)
 window_name = widget.WindowName(background = colors['Base'],
                                 foreground = colors['Pink'],
-                                max_chars = 128)
+                                max_chars = 100)
 base_blue = widget.TextBox(text = '\uE0B2', 
                            foreground = colors['Blue'], 
                            background = colors['Base'],
@@ -304,6 +306,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                extra_space,
                 power_button,
                 pink_peach,
                 cpu,
@@ -328,7 +331,7 @@ screens = [
                 clock,
             ],
             30,
-            margin = [10, 10, 0, 10],
+            margin = [10, 5, 5, 5],
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
