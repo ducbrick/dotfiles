@@ -153,10 +153,14 @@ colors = {
     'Yellow': '#f9e2af',
     'Lavender': '#b4befe',
     'Green': '#a6e3a1',
+    'Teal': '#94e2d5',
     'Sapphire': '#74c7ec',
     'Blue': '#89b4fa',
     'Overlay 0': '#6c7086',
     'Text': '#cdd6f4',
+    'Surface 0': '#313244',
+    'Base': '#1e1e2e',
+    'Mantle': '#181825',
     'Crust': '#11111b',
 }
 
@@ -195,7 +199,7 @@ layouts = [
 widget_defaults = dict(
     font="JetBrains Mono Nerd Font",
     fontsize=16,
-    padding=5,
+    padding=10,
     foreground=colors['Crust'],
 )
 extension_defaults = widget_defaults.copy()
@@ -206,9 +210,46 @@ task_list = widget.TaskList(parse_text=lambda text: '')
 separator_config = {
     'fontsize': 24,
     'padding': 0,
+    'padding_y': 10
 }
 
-null_blue = widget.TextBox(text = '', 
+power_button = widget.Image(filename = '~/.config/qtile/icons/power.png',
+                            background = colors['Pink'],
+                            mouse_callbacks = {'Button1': lazy.spawn('xfce4-session-logout')},)
+pink_peach = widget.TextBox(text = '\uE0B0', 
+                            background = colors['Peach'], 
+                            foreground = colors['Pink'], 
+                            **separator_config)
+cpu = widget.CPU(format = ' {load_percent:04.1f}%',
+                 background = colors['Peach'])
+peach_green = widget.TextBox(text = '\uE0B0', 
+                            background = colors['Green'], 
+                            foreground = colors['Peach'], 
+                            **separator_config)
+memory = widget.Memory(format = ' {MemUsed:05.2f}{mm}',
+                       measure_mem = 'G',
+                       background = colors['Green'])
+green_blue = widget.TextBox(text = '\uE0B0', 
+                            background = colors['Blue'], 
+                            foreground = colors['Green'], 
+                            **separator_config)
+current_layout_icon = widget.CurrentLayoutIcon(background = colors['Blue'],
+                                               scale = 0.7,
+                                               custom_icon_paths = ['~/.config/qtile/icons'])
+blue_mantle = widget.TextBox(text = '\uE0B0', 
+                             background = colors['Mantle'], 
+                             foreground = colors['Blue'], 
+                             **separator_config)
+group_box = widget.GroupBox(background = colors['Mantle'],
+                            inactive = colors['Mantle'],
+                            active = colors['Pink'],
+                            highlight_method = 'line',
+                            margin_x = 10,
+                            padding_x = 5,
+                            spacing = 0,
+                            highlight_color = [colors['Mantle'], colors['Surface 0']],
+                            this_current_screen_border = colors['Pink'])
+null_blue = widget.TextBox(text = '\uE0B6', 
                            foreground = colors['Blue'], 
                            **separator_config)
 
@@ -216,7 +257,7 @@ systray = widget.Systray(background = colors['Blue'])
 
 status_notifier = widget.StatusNotifier(background = colors['Blue'])
 
-blue_green = widget.TextBox(text = '', 
+blue_green = widget.TextBox(text = '\uE0B6', 
                             background = colors['Blue'], 
                             foreground = colors['Green'], 
                             **separator_config)
@@ -230,7 +271,7 @@ battery = widget.Battery(format = "{percent:2.0%}",
                          show_short_text = False, 
                          background = colors['Green'])
 
-green_peach = widget.TextBox(text = '', 
+green_peach = widget.TextBox(text = '\uE0B6', 
                              background = colors['Green'], 
                              foreground = colors['Peach'], 
                              **separator_config)
@@ -240,12 +281,12 @@ volume_icon = widget.Volume(volumn_app = "pavucontrol",
                            emoji_list = ['', '', '', ''],
                            emoji = True,
                            fontsize = 20,
-                           padding = 10)
+                           padding = 13)
 volume = widget.Volume(volumn_app = "pavucontrol", 
                        mute_format = 'Mut', 
                        background = colors['Peach'])
 
-peach_pink = widget.TextBox(text = '', 
+peach_pink = widget.TextBox(text = '\uE0B6', 
                             background = colors['Peach'], 
                             foreground = colors['Pink'], 
                             **separator_config)
@@ -257,8 +298,15 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
+                power_button,
+                pink_peach,
+                cpu,
+                peach_green,
+                memory,
+                green_blue,
+                current_layout_icon,
+                blue_mantle,
+                group_box,
 
                 task_list,
                 # widget.WindowName(),
@@ -277,6 +325,7 @@ screens = [
                 clock,
             ],
             30,
+            margin = [10, 10, 0, 10],
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
