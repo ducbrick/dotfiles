@@ -255,7 +255,7 @@ crust_base = widget.TextBox(text = '\uE0B0',
                              **separator_config)
 window_name = widget.WindowName(background = colors['Base'],
                                 foreground = colors['Pink'],
-                                max_chars = 100)
+                                max_chars = 80)
 base_blue = widget.TextBox(text = '\uE0B2', 
                            foreground = colors['Blue'], 
                            background = colors['Base'],
