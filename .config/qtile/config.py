@@ -118,7 +118,7 @@ keys = [
 #                                                                                                  #
 ####################################################################################################
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in "12345"]
 
 for i in groups:
     keys.extend(
@@ -204,8 +204,6 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-task_list = widget.TaskList(parse_text=lambda text: '')
-
 # Widgets
 separator_config = {
     'fontsize': 24,
@@ -236,28 +234,36 @@ green_blue = widget.TextBox(text = '\uE0B0',
 current_layout_icon = widget.CurrentLayoutIcon(background = colors['Blue'],
                                                scale = 0.7,
                                                custom_icon_paths = ['~/.config/qtile/icons'])
-blue_mantle = widget.TextBox(text = '\uE0B0', 
-                             background = colors['Mantle'], 
+blue_crust = widget.TextBox(text = '\uE0B0', 
+                             background = colors['Crust'], 
                              foreground = colors['Blue'], 
                              **separator_config)
-group_box = widget.GroupBox(background = colors['Mantle'],
-                            inactive = colors['Mantle'],
+group_box = widget.GroupBox(background = colors['Crust'],
+                            inactive = colors['Crust'],
                             active = colors['Pink'],
                             highlight_method = 'line',
                             margin_x = 10,
                             padding_x = 5,
                             spacing = 0,
-                            highlight_color = [colors['Mantle'], colors['Surface 0']],
+                            highlight_color = [colors['Crust'], colors['Surface 0']],
                             this_current_screen_border = colors['Pink'])
-null_blue = widget.TextBox(text = '\uE0B6', 
+crust_base = widget.TextBox(text = '\uE0B0', 
+                             background = colors['Base'], 
+                             foreground = colors['Crust'], 
+                             **separator_config)
+window_name = widget.WindowName(background = colors['Base'],
+                                foreground = colors['Pink'],
+                                max_chars = 128)
+base_blue = widget.TextBox(text = '\uE0B2', 
                            foreground = colors['Blue'], 
+                           background = colors['Base'],
                            **separator_config)
 
 systray = widget.Systray(background = colors['Blue'])
 
 status_notifier = widget.StatusNotifier(background = colors['Blue'])
 
-blue_green = widget.TextBox(text = '\uE0B6', 
+blue_green = widget.TextBox(text = '\uE0B2', 
                             background = colors['Blue'], 
                             foreground = colors['Green'], 
                             **separator_config)
@@ -271,7 +277,7 @@ battery = widget.Battery(format = "{percent:2.0%}",
                          show_short_text = False, 
                          background = colors['Green'])
 
-green_peach = widget.TextBox(text = '\uE0B6', 
+green_peach = widget.TextBox(text = '\uE0B2', 
                              background = colors['Green'], 
                              foreground = colors['Peach'], 
                              **separator_config)
@@ -286,12 +292,12 @@ volume = widget.Volume(volumn_app = "pavucontrol",
                        mute_format = 'Mut', 
                        background = colors['Peach'])
 
-peach_pink = widget.TextBox(text = '\uE0B6', 
+peach_pink = widget.TextBox(text = '\uE0B2', 
                             background = colors['Peach'], 
                             foreground = colors['Pink'], 
                             **separator_config)
 
-clock = widget.Clock(format = "󱛡 %H:%M %a %Y-%m-%d", 
+clock = widget.Clock(format = "󱛡 %H:%M %a %d-%m", 
                      background = colors['Pink'])
 
 screens = [
@@ -305,14 +311,11 @@ screens = [
                 memory,
                 green_blue,
                 current_layout_icon,
-                blue_mantle,
+                blue_crust,
                 group_box,
-
-                task_list,
-                # widget.WindowName(),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                null_blue,
+                crust_base,
+                window_name,
+                base_blue,
                 systray,
                 status_notifier,
                 blue_green,
