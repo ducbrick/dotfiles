@@ -105,6 +105,7 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%"), desc='Volume Up'),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%"), desc='volume down'),
     Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute 0 toggle"), desc='Volume Mute'),
+    Key([], "XF86AudioMicMute", lazy.spawn("pactl set-source-mute 0 toggle"), desc='Microphone Mute'),
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc='Pause/Unpause media'),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc='Play previous'),
     Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc='Play next'),
@@ -146,6 +147,7 @@ for i in groups:
 colors = {
     'Rosewater': '#f5e0dc',
     'Pink': '#f5c2e7',
+    'Bright Red': '#f37799',
     'Maroon': '#eba0ac',
     'Peach': '#fab387',
     'Yellow': '#f9e2af',
@@ -192,7 +194,7 @@ layouts = [
 
 widget_defaults = dict(
     font="JetBrains Mono Nerd Font",
-    fontsize=20,
+    fontsize=16,
     padding=5,
     foreground=colors['Crust'],
 )
@@ -201,24 +203,55 @@ extension_defaults = widget_defaults.copy()
 task_list = widget.TaskList(parse_text=lambda text: '')
 
 # Widgets
-systray = widget.Systray(background=colors['Blue'])
+separator_config = {
+    'fontsize': 24,
+    'padding': 0,
+}
 
-status_notifier = widget.StatusNotifier(background=colors['Blue'])
+null_blue = widget.TextBox(text = '', 
+                           foreground = colors['Blue'], 
+                           **separator_config)
 
-blue_green = widget.TextBox(text='', background=colors['Blue'], foreground=colors['Green'], fontsize=31, padding=0)
+systray = widget.Systray(background = colors['Blue'])
 
-battery_icon = widget.BatteryIcon(background=colors['Green'], theme_path='~/.config/qtile/icons')
+status_notifier = widget.StatusNotifier(background = colors['Blue'])
 
-battery = widget.Battery(format="{percent:2.0%}", low_foreground="#FF0000", low_percentage=0.2, show_short_text=False, background=colors['Green'])
+blue_green = widget.TextBox(text = '', 
+                            background = colors['Blue'], 
+                            foreground = colors['Green'], 
+                            **separator_config)
 
-green_peach = widget.TextBox(text='', background=colors['Green'], foreground=colors['Peach'], fontsize=31, padding=0)
+battery_icon = widget.BatteryIcon(background = colors['Green'], 
+                                  theme_path = '~/.config/qtile/icons')
 
-volume_icon = widget.Volume(volumn_app="pavucontrol", background=colors['Peach'], theme_path='~/.config/qtile/icons', padding=0)
-volume = widget.Volume(volumn_app="pavucontrol", mute_format='Mut', background=colors['Peach'])
+battery = widget.Battery(format = "{percent:2.0%}", 
+                         low_foreground = colors['Bright Red'], 
+                         low_percentage = 0.2, 
+                         show_short_text = False, 
+                         background = colors['Green'])
 
-peach_pink = widget.TextBox(text='', background=colors['Peach'], foreground=colors['Pink'], fontsize=31, padding=0)
+green_peach = widget.TextBox(text = '', 
+                             background = colors['Green'], 
+                             foreground = colors['Peach'], 
+                             **separator_config)
 
-clock = widget.Clock(format="󱛡 %H:%M %a %Y-%m-%d", background = colors['Pink'])
+volume_icon = widget.Volume(volumn_app = "pavucontrol", 
+                           background = colors['Peach'],
+                           emoji_list = ['', '', '', ''],
+                           emoji = True,
+                           fontsize = 20,
+                           padding = 10)
+volume = widget.Volume(volumn_app = "pavucontrol", 
+                       mute_format = 'Mut', 
+                       background = colors['Peach'])
+
+peach_pink = widget.TextBox(text = '', 
+                            background = colors['Peach'], 
+                            foreground = colors['Pink'], 
+                            **separator_config)
+
+clock = widget.Clock(format = "󱛡 %H:%M %a %Y-%m-%d", 
+                     background = colors['Pink'])
 
 screens = [
     Screen(
@@ -231,7 +264,7 @@ screens = [
                 # widget.WindowName(),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-
+                null_blue,
                 systray,
                 status_notifier,
                 blue_green,
@@ -243,11 +276,11 @@ screens = [
                 peach_pink,
                 clock,
             ],
-            40,
+            30,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
-        wallpaper='~/Pictures/wallpaper.png',
+        wallpaper='~/.config/qtile/wallpaper.png',
         # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
         # By default we handle these events delayed to already improve performance, however your system might still be struggling
         # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
