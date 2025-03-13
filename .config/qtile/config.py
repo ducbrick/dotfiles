@@ -102,6 +102,9 @@ keys = [
     # Switch to window
     Key([mod], "w", lazy.spawn("rofi -show window"), desc="Switch to a window"),
 
+    # Screenshot 
+    Key([], "Print", lazy.spawn("xfce4-screenshooter"), desc="Take a screenshot"),
+
     # Volume control
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume 0 +5%"), desc='Volume Up'),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume 0 -5%"), desc='volume down'),
@@ -250,16 +253,29 @@ group_box = widget.GroupBox(background = colors['Crust'],
                             highlight_color = [colors['Crust'], colors['Surface 0']],
                             this_current_screen_border = colors['Pink'])
 crust_base = widget.TextBox(text = '\uE0B0', 
-                             background = colors['Base'], 
-                             foreground = colors['Crust'], 
-                             **separator_config)
+                            background = colors['Base'], 
+                            foreground = colors['Crust'], 
+                            **separator_config)
 window_name = widget.WindowName(background = colors['Base'],
                                 foreground = colors['Pink'],
                                 max_chars = 80)
-base_blue = widget.TextBox(text = '\uE0B2', 
-                           foreground = colors['Blue'], 
-                           background = colors['Base'],
-                           **separator_config)
+base_crust = widget.TextBox(text = '\uE0B2', 
+                            background = colors['Base'], 
+                            foreground = colors['Crust'], 
+                            **separator_config)
+current_song = widget.Mpris2(background = colors['Crust'],
+                             foreground = colors['Pink'],
+                             width = 300,
+                             display_metadata = ['xesam:title'],
+                             no_metadata_text = '~~',
+                             paused_text = ' {track}',
+                             playing_text = ' {track}',
+                             scroll_delay = 1,
+                             scroll_step = 3)
+crust_blue = widget.TextBox(text = '\uE0B2', 
+                            foreground = colors['Blue'], 
+                            background = colors['Crust'],
+                            **separator_config)
 
 systray = widget.Systray(background = colors['Blue'])
 
@@ -284,13 +300,13 @@ green_peach = widget.TextBox(text = '\uE0B2',
                              foreground = colors['Peach'], 
                              **separator_config)
 
-volume_icon = widget.Volume(volumn_app = "pavucontrol", 
+volume_icon = widget.PulseVolume(volumn_app = "pavucontrol", 
                            background = colors['Peach'],
                            emoji_list = ['', '', '', ''],
                            emoji = True,
                            fontsize = 20,
                            padding = 13)
-volume = widget.Volume(volumn_app = "pavucontrol", 
+volume = widget.PulseVolume(volumn_app = "pavucontrol", 
                        mute_format = 'Mut', 
                        background = colors['Peach'])
 
@@ -318,7 +334,9 @@ screens = [
                 group_box,
                 crust_base,
                 window_name,
-                base_blue,
+                base_crust,
+                current_song,
+                crust_blue,
                 systray,
                 status_notifier,
                 blue_green,
