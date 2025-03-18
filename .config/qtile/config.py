@@ -37,7 +37,7 @@ from libqtile.utils import guess_terminal
 ####################################################################################################
 
 mod = "mod4"
-terminal = guess_terminal()
+terminal = "kitty"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -71,6 +71,7 @@ keys = [
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, 'shift'], "Tab", lazy.prev_layout(), desc="Toggle between layouts"),
+    Key([mod], 's', lazy.layout.toggle_split()),
 
     # Close focused window
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
@@ -152,6 +153,7 @@ colors = {
     'Rosewater': '#f5e0dc',
     'Pink': '#f5c2e7',
     'Bright Red': '#f37799',
+    'Red': '#f38ba8',
     'Maroon': '#eba0ac',
     'Peach': '#fab387',
     'Yellow': '#f9e2af',
@@ -178,7 +180,9 @@ layout_config = {
 }
 
 layouts = [
-    layout.Columns(**layout_config),
+    layout.Columns(**layout_config, 
+                   border_focus_stack = colors['Pink'], 
+                   border_normal_stack = colors['Base']),
     layout.Max(**layout_config),
     layout.Bsp(**layout_config),
     # layout.MonadTall(**layout_config),
@@ -265,8 +269,10 @@ base_crust = widget.TextBox(text = '\uE0B2',
                             **separator_config)
 current_song_icon = widget.Mpris2(background = colors['Crust'],
                                   foreground = colors['Pink'],
-                             paused_text = '',
-                             playing_text = '')
+                                  display_metadata = [],
+                                  paused_text = '',
+                                  playing_text = '',
+                                  max_chars = 1)
 current_song = widget.Mpris2(background = colors['Crust'],
                              foreground = colors['Pink'],
                              width = 300,
