@@ -8,4 +8,9 @@ configuration {
 	show-icons: true;
 	icon-theme: "Tela-pink-dark";
 	font: "JetBrainsMono Nerd Font Medium 20";
+
+	kb-move-char-back: "";
+	kb-move-char-forward: "";
+	kb-row-left: "Left";
+	kb-row-right: "Right";
 }
