@@ -10,6 +10,7 @@ window {
     border: 2px;
     border-color: pink;
     border-radius: 15px;
+    width: 850px;
 }
 mainbox {
     padding: 15px;
