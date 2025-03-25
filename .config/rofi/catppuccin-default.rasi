@@ -1,76 +1,72 @@
 @import "catppuccin-mocha"
 
+* {
+    background-color: inherit;
+    vertical-align: 0.5;
+}
+
 window {
-    padding: 10px;
     background-color: @base;
     border: 2px;
     border-color: pink;
     border-radius: 15px;
 }
 mainbox {
-    background-color: inherit;
-    spacing: 10px;
+    padding: 15px;
+    spacing: 15px;
 }
 inputbar {
     children: ["prompt","textbox-prompt-colon","entry","num-filtered-rows","textbox-num-sep","num-rows"];
-    background-color: transparent;
-    spacing: 5px;
+    spacing: 0px;
 }
 prompt {
-    text-color: @pink;
-    background-color: inherit;
+    text-color: @base;
+    background-color: @pink;
+    padding: 5px 5px 5px 15px;
+    border-radius: 15px 0px 0px 15px;
 }
 textbox-prompt-colon {
     expand: false;
-    str: ":";
+    str: "";
     text-color: @pink;
-    background-color: inherit;
+    font: "JetBrainsMono Nerd Font 25";
 }
 entry {
     text-color: @text;
     placeholder-color: @overlay0;
     placeholder: "Type to filter";
-    background-color: inherit;
+    margin: 0px 15px;
 }
 num-filtered-rows {
     expand: false;
     text-color: @overlay0;
-    background-color: inherit;
 }
 textbox-num-sep {
     expand: false;
     str: "/";
     text-color: @overlay0;
-    background-color: inherit;
 }
 num-rows {
     expand: false;
     text-color: @overlay0;
-    background-color: inherit;
 }
 message {
-    padding: 5px;
-    border: 2px solid 0px 0px;
+    padding: 20px;
     border-color: @pink;
-    background-color: inherit;
 }
 textbox {
-    text-color: @pink;
-    background-color: inherit;
+    text-color: @text;
 }
 listview {
     columns: 2;
     fixed-height: false;
     lines: 10;
-    background-color: inherit;
 }
 element {
     padding: 5px;
     border-radius: 15px;
-    background-color: inherit;
 }
 element normal {
-    background-color: inherit;
     text-color: @text;
 }
 element selected {
@@ -79,9 +75,7 @@ element selected {
 }
 element-icon {
     size: 1em;
-    background-color: inherit;
 }
 element-text {
     text-color: inherit;
-    background-color: inherit;
 }
