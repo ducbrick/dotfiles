@@ -1,0 +1,10 @@
+import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[window]
+padding = {x = 15, y = 15}
+
+[font]
+normal = {family = "JetBrainsMono Nerd Font", style = "Regular"}
+size = 15
