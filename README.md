@@ -2,6 +2,7 @@
 
 # Dependencies
 
++ **XFCE4**: Desktop environment
 + **Qtile**: Window manager
 + **Picom**: Compositor
 + **pactl**: Volume control
