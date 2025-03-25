@@ -74,6 +74,10 @@ element selected {
     background-color: @pink;
     text-color: @base;
 }
+element active {
+    background-color: @green;
+    text-color: @base;
+}
 element-icon {
     size: 1em;
 }
