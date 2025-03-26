@@ -1,6 +1,7 @@
 import = [
   "~/.config/alacritty/catppuccin-mocha.toml"
 ]
+shell = "/usr/bin/fish"
 
 [window]
 padding = {x = 15, y = 15}
