@@ -7,8 +7,9 @@ SETUVAR _fisher_ilancosman_2F_tide_40_v6_files:\x7e/\x2econfig/fish/functions/_t
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eilancosman/tide\x40v6\x1ecatppuccin/fish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
-SETUVAR _tide_left_items:pwd\x1egit\x1enewline\x1echaracter
+SETUVAR _tide_left_items:pwd\x1enewline\x1echaracter
 SETUVAR _tide_right_items:status\x1ecmd_duration\x1econtext\x1ejobs\x1epython\x1etime
+SETUVAR bg_color:black
 SETUVAR fish_color_autosuggestion:6c7086
 SETUVAR fish_color_cancel:f38ba8
 SETUVAR fish_color_command:89b4fa
@@ -117,7 +118,7 @@ SETUVAR tide_kubectl_bg_color:blue
 SETUVAR tide_kubectl_color:black
 SETUVAR tide_kubectl_icon:\U000f10fe
 SETUVAR tide_left_prompt_frame_enabled:true
-SETUVAR tide_left_prompt_items:pwd\x1egit\x1enewline\x1echaracter
+SETUVAR tide_left_prompt_items:pwd\x1enewline\x1echaracter
 SETUVAR tide_left_prompt_prefix:\ue0b6
 SETUVAR tide_left_prompt_separator_diff_color:\ue0b0
 SETUVAR tide_left_prompt_separator_same_color:\ue0b1
@@ -147,10 +148,10 @@ SETUVAR tide_prompt_transient_enabled:false
 SETUVAR tide_pulumi_bg_color:yellow
 SETUVAR tide_pulumi_color:black
 SETUVAR tide_pulumi_icon:\uf1b2
-SETUVAR tide_pwd_bg_color:blue
-SETUVAR tide_pwd_color_anchors:brwhite
-SETUVAR tide_pwd_color_dirs:brwhite
-SETUVAR tide_pwd_color_truncated_dirs:white
+SETUVAR tide_pwd_bg_color:brmagenta
+SETUVAR tide_pwd_color_anchors:black
+SETUVAR tide_pwd_color_dirs:black
+SETUVAR tide_pwd_color_truncated_dirs:brblack
 SETUVAR tide_pwd_icon:\x1d
 SETUVAR tide_pwd_icon_home:\x1d
 SETUVAR tide_pwd_icon_unwritable:\uf023
@@ -183,7 +184,7 @@ SETUVAR tide_status_icon_failure:\u2718
 SETUVAR tide_terraform_bg_color:magenta
 SETUVAR tide_terraform_color:black
 SETUVAR tide_terraform_icon:\U000f1062
-SETUVAR tide_time_bg_color:white
+SETUVAR tide_time_bg_color:green
 SETUVAR tide_time_color:black
 SETUVAR tide_time_format:\x25T
 SETUVAR tide_toolbox_bg_color:magenta
