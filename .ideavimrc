@@ -6,6 +6,8 @@
 " Map leader to space
 let mapleader = " "
 
+set ideastatusicon=gray
+set visualbell
 
 " Scroll offset
 set scrolloff=10
@@ -30,27 +32,43 @@ set timeoutlen=5000
 
 " Zen
 map <leader>z <Action>(ToggleDistractionFreeMode)
-" New
-map <leader>n <Action>(NewElementInMenuGroup)
-
+" Tabs
 map <leader>h <Action>(PreviousTab)
 map <leader>l <Action>(NextTab)
-" Insert
-map <leader>i <Action>(Generate)
-" Error
-map <leader>e <Action>(ShowErrorDescription)
-" Doc
-map <leader>d <Action>(QuickJavaDoc)
-" go To
-map <leader>t <Action>(GotoDeclaration)
-" Close tab
-map <leader>c <Action>(CloseContent)
+map <leader>tc <Action>(CloseContent)
+map <leader>tC <Action>(CloseAllEditorsButActive)
+" New
+map <leader>n <Action>(Generate)
+" Show info
+map <leader>se <Action>(ShowErrorDescription)
+map <leader>si <Action>(ShowIntentionActions)
+map <leader>sd <Action>(QuickJavaDoc)
+map <leader>ss <Action>(FileStructurePopup)
+map <leader>su <Action>(ShowUsages)
+" Go to
+map <leader>gd <Action>(GotoDeclaration)
+map <leader>gt <Action>(GotoTypeDeclaration)
+map <leader>gs <Action>(GotoSuperMethod)
+map <leader>gi <Action>(GotoImplementation)
+map <leader>gT <Action>(GotoTest)
+map <leader>gf <Action>(GotoFile)
+map <leader>gr <Action>(RecentFiles)
+map <leader>gR <Action>(Files)
 " Refactoring
 map <leader>r <Action>(Refactorings.QuickListPopupAction)
-" run Application
-map <leader>ar <Action>(Run)
-" stop Application
-map <leader>as <Action>(Stop)
+" Application
+map <leader>ar <Action>(RunClass)
+map <leader>as <action>(stop)
+map <leader>ad <Action>(Debug)
+" Method navigation
+map [ <Action>(MethodUp)
+map ] <Action>(MethodDown)
+" Collapsing & Expanding
+map <C-[> <Action>(CollapseRegion)
+map <C-]> <Action>(ExpandRegion)
+" Comment
+map <leader>c <Action>(CommentByLineComment)
+map <leader>C <Action>(CommentByBlockComment)
 
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 
@@ -60,5 +78,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
 " Nerdtree
 Plug 'preservim/nerdtree'
+nnoremap <leader>t :NERDTreeToggle<CR>
 " Surround
 Plug 'tpope/vim-surround'
