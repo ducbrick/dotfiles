@@ -37,7 +37,8 @@ map <leader>h <Action>(PreviousTab)
 map <leader>l <Action>(NextTab)
 map <leader>tc <Action>(CloseContent)
 map <leader>tC <Action>(CloseAllEditorsButActive)
-" New
+let g:WhichKeyDesc_Tab = "<leader>t Tab management"
+" new
 map <leader>n <Action>(Generate)
 " Show info
 map <leader>se <Action>(ShowErrorDescription)
@@ -45,6 +46,7 @@ map <leader>si <Action>(ShowIntentionActions)
 map <leader>sd <Action>(QuickJavaDoc)
 map <leader>ss <Action>(FileStructurePopup)
 map <leader>su <Action>(ShowUsages)
+let g:WhichKeyDesc_Show = "<leader>s Show information"
 " Go to
 map <leader>gd <Action>(GotoDeclaration)
 map <leader>gt <Action>(GotoTypeDeclaration)
@@ -53,13 +55,15 @@ map <leader>gi <Action>(GotoImplementation)
 map <leader>gT <Action>(GotoTest)
 map <leader>gf <Action>(GotoFile)
 map <leader>gr <Action>(RecentFiles)
-map <leader>gR <Action>(Files)
+map <leader>gR <Action>(RecentChangedFiles)
+let g:WhichKeyDesc_GoTo = "<leader>g Go to"
 " Refactoring
 map <leader>r <Action>(Refactorings.QuickListPopupAction)
 " Application
-map <leader>ar <Action>(RunClass)
-map <leader>as <action>(stop)
+map <leader>ar <Action>(Run)
+map <leader>as <action>(Stop)
 map <leader>ad <Action>(Debug)
+let g:WhichKeyDesc_Application = "<leader>a Application"
 " Method navigation
 map [ <Action>(MethodUp)
 map ] <Action>(MethodDown)
@@ -69,6 +73,8 @@ map <C-]> <Action>(ExpandRegion)
 " Comment
 map <leader>c <Action>(CommentByLineComment)
 map <leader>C <Action>(CommentByBlockComment)
+" open terminal
+map <leader><CR> <Action>(ActivateTerminalToolWindow)
 
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 
@@ -78,6 +84,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
 " Nerdtree
 Plug 'preservim/nerdtree'
-nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>p :NERDTreeToggle<CR>
 " Surround
 Plug 'tpope/vim-surround'
