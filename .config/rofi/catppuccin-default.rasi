@@ -3,16 +3,18 @@
 * {
     background-color: inherit;
     vertical-align: 0.5;
+    transparency: "real";
 }
 
 window {
-    background-color: @base;
+    background-color: @base-transparent;
     border: 2px;
-    border-color: pink;
+    border-color: @pink;
     border-radius: 15px;
     width: 850px;
 }
 mainbox {
+    background-color: @transparent;
     padding: 15px;
     spacing: 15px;
 }
