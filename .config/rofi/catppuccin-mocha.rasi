@@ -23,7 +23,7 @@
   surface1: #45475a;
   surface0: #313244;
   base: #1e1e2e;
-  base-transparent: #1e1e2e50;
+  base-transparent: #1e1e2ebf;
   mantle: #181825;
   crust: #11111b;
   transparent: #00000000;
