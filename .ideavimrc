@@ -75,6 +75,8 @@ map <leader>c <Action>(CommentByLineComment)
 map <leader>C <Action>(CommentByBlockComment)
 " open terminal
 map <leader><CR> <Action>(ActivateTerminalToolWindow)
+" close active window
+map <leader>q <Action>(HideActiveWindow)
 
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 
