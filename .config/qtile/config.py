@@ -196,6 +196,7 @@ layouts = [
                    section_left = 8),
     layout.Bsp(**layout_config),
     layout.Spiral(**layout_config, new_client_position = 'bottom'),
+    layout.Zoomy(),
     # layout.MonadTall(**layout_config),
     # layout.MonadWide(**layout_config),
     # layout.Stack(num_stacks=2),
@@ -205,7 +206,6 @@ layouts = [
     layout.Floating(**layout_config),
     layout.Max(**layout_config),
     # layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
 
 ####################################################################################################
@@ -392,7 +392,7 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 floats_kept_above = True
 cursor_warp = False

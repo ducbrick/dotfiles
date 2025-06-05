@@ -56,6 +56,7 @@ map <leader>gT <Action>(GotoTest)
 map <leader>gf <Action>(GotoFile)
 map <leader>gr <Action>(RecentFiles)
 map <leader>gR <Action>(RecentChangedFiles)
+map <leader>gg <Action>(Switcher)
 let g:WhichKeyDesc_GoTo = "<leader>g Go to"
 " Refactoring
 map <leader>r <Action>(Refactorings.QuickListPopupAction)
@@ -63,6 +64,8 @@ map <leader>r <Action>(Refactorings.QuickListPopupAction)
 map <leader>ar <Action>(Run)
 map <leader>as <action>(Stop)
 map <leader>ad <Action>(Debug)
+map <leader>ac <Action>(RunClass)
+map <leader>aa <Action>(ChooseRunConfiguration)
 let g:WhichKeyDesc_Application = "<leader>a Application"
 " Method navigation
 map [ <Action>(MethodUp)
