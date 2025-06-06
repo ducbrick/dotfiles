@@ -9,13 +9,18 @@ return {
 		priority = 1000, -- Make sure to load this before all the other start plugins.
 		config = function()
 			---@diagnostic disable-next-line: missing-fields
-			require("catppuccin")
+			require("catppuccin").setup({
+				dim_inactive = {
+					enabled = true,
+					shade = "light",
+					percentage = 1,
+				},
+			})
 
 			-- Load the colorscheme here.
 			-- Like many other themes, this one has different styles, and you could load
 			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
 			vim.cmd.colorscheme("catppuccin")
-			vim.api.nvim_set_hl(0, "Normal", { bg = "None" })
 		end,
 	},
 }
