@@ -34,7 +34,7 @@ map <C-p> <Up>
 imap <C-y> <Action>(EditorChooseLookupItem)
 
 " [W]indow management
-map <C-w>q :q<CR>
+map <C-w>q <Action>(Unsplit)
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
