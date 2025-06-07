@@ -6,48 +6,85 @@
 " Map leader to space
 let mapleader = " "
 
-set ideastatusicon=gray
+set showmode
+set showcmd
+
 set visualbell
-
-" Scroll offset
 set scrolloff=10
-
-" Do incremental searching
+set sidescrolloff=20
 set incsearch
-
-" Set relative line numbers
 set rnu
 
-" Set clipboard
 set clipboard+=unnamed
 set clipboard+=unnamedplus
 set clipboard+=ideaput
 
-" Enable Which-Key plugin
-set which-key
-set timeoutlen=5000
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
 
+set which-key
+set notimeout
+
+nmap <Esc> :nohlsearch<CR>
 
 " --- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+map <C-n> <Down>
+map <C-p> <Up>
 
-" Zen
+" [W]indow management
+map <C-w>q :q<CR>
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+let g:WhichKeyDesc_Window = "<C-w> [W]indow management"
+let g:WhichKeyDesc_WindowClose = "<C-w>q Close window"
+let g:WhichKeyDesc_WindowLeft = "<C-h> Move to left window"
+let g:WhichKeyDesc_WindowDown = "<C-j> Move to down window"
+let g:WhichKeyDesc_WindowUp = "<C-k> Move to up window"
+let g:WhichKeyDesc_WindowRight = "<C-l> Move to right window"
+
+" Indentation
+map <Tab> <Action>(EditorIndentLineOrSelection)
+map <S-Tab> <Action>(EditorUnindentSelection)
+
+" [Z]en
 map <leader>z <Action>(ToggleDistractionFreeMode)
-" Tabs
-map <leader>h <Action>(PreviousTab)
-map <leader>l <Action>(NextTab)
+let g:WhichKeyDesc_Zen = "<leader>z Toggle Zen mode"
+
+" [T]abs
+map <leader>th <Action>(PreviousTab)
+map <leader>tl <Action>(NextTab)
 map <leader>tc <Action>(CloseContent)
 map <leader>tC <Action>(CloseAllEditorsButActive)
-let g:WhichKeyDesc_Tab = "<leader>t Tab management"
-" new
+let g:WhichKeyDesc_Tab = "<leader>t [T]ab management"
+let g:WhichKeyDesc_TabNext = "<leader>tl Next tab"
+let g:WhichKeyDesc_TabPrevious = "<leader>th Previous tab"
+let g:WhichKeyDesc_TabClose = "<leader>tc [C]lose current tab"
+let g:WhichKeyDesc_TabCloseInactive = "<leader>tC [C]lose all inactive tabs"
+
+" [N]ew
 map <leader>n <Action>(Generate)
-" Show info
+let g:WhichKeyDesc_New = "<leader>n [N]ew code"
+
+" [S]how info
 map <leader>se <Action>(ShowErrorDescription)
 map <leader>si <Action>(ShowIntentionActions)
 map <leader>sd <Action>(QuickJavaDoc)
 map <leader>ss <Action>(FileStructurePopup)
 map <leader>su <Action>(ShowUsages)
-let g:WhichKeyDesc_Show = "<leader>s Show information"
-" Go to
+let g:WhichKeyDesc_Show = "<leader>s [S]how information"
+let g:WhichKeyDesc_ShowErrorDescription = "<leader>se [S]how [E]rror description"
+let g:WhichKeyDesc_ShowIntentionActions = "<leader>si [S]how [I]ntention actions"
+let g:WhichKeyDesc_ShowQuickJavaDoc = "<leader>sd [S]how [D]ocumentation"
+let g:WhichKeyDesc_ShowFileStructure = "<leader>ss [S]how file [S]tructure"
+let g:WhichKeyDesc_ShowUsages = "<leader>su [S]how [U]sages"
+
+imap <C-d> <Action>(QuickJavaDoc)
+
+" [G]o to
 map <leader>gd <Action>(GotoDeclaration)
 map <leader>gt <Action>(GotoTypeDeclaration)
 map <leader>gs <Action>(GotoSuperMethod)
@@ -57,29 +94,57 @@ map <leader>gf <Action>(GotoFile)
 map <leader>gr <Action>(RecentFiles)
 map <leader>gR <Action>(RecentChangedFiles)
 map <leader>gg <Action>(Switcher)
-let g:WhichKeyDesc_GoTo = "<leader>g Go to"
-" Refactoring
+let g:WhichKeyDesc_GoTo = "<leader>g [G]o to"
+let g:WhichKeyDesc_GoToDeclaration = "<leader>gd [G]o to [D]eclaration"
+let g:WhichKeyDesc_GoToTypeDeclaration = "<leader>gt [G]o to [T]ype declaration"
+let g:WhichKeyDesc_GoToSuperMethod = "<leader>gs [G]o to [S]uper method"
+let g:WhichKeyDesc_GoToImplementation = "<leader>gi [G]o to [I]mplementation"
+let g:WhichKeyDesc_GoToTest = "<leader>gT [G]o to [T]est"
+let g:WhichKeyDesc_GoToFile = "<leader>gf [G]o to [F]ile"
+let g:WhichKeyDesc_GoToRecentFiles = "<leader>gr [G]o to [R]ecent files"
+let g:WhichKeyDesc_GoToRecentChangedFiles = "<leader>gR [G]o to [R]ecent changed files"
+let g:WhichKeyDesc_GoToSwitcher = "<leader>gg [G]o to switcher"
+
+" [R]efactoring
 map <leader>r <Action>(Refactorings.QuickListPopupAction)
-" Application
+let g:WhichKeyDesc_Refactoring = "<leader>r [R]efactor"
+
+" [A]pplication
 map <leader>ar <Action>(Run)
 map <leader>as <action>(Stop)
 map <leader>ad <Action>(Debug)
 map <leader>ac <Action>(RunClass)
 map <leader>aa <Action>(ChooseRunConfiguration)
-let g:WhichKeyDesc_Application = "<leader>a Application"
+let g:WhichKeyDesc_Application = "<leader>a [A]pplication"
+let g:WhichKeyDesc_ApplicationRun = "<leader>ar [A]pplication [R]un"
+let g:WhichKeyDesc_ApplicationStop = "<leader>as [A]pplication [S]top"
+let g:WhichKeyDesc_ApplicationDebug = "<leader>ad [A]pplication [D]ebug"
+let g:WhichKeyDesc_ApplicationRunClass = "<leader>ac [A]pplication run [C]lass"
+let g:WhichKeyDesc_ApplicationChooseRunConfiguration = "<leader>aa Choose run configuration"
+
 " Method navigation
 map [ <Action>(MethodUp)
 map ] <Action>(MethodDown)
+let g:WhichKeyDesc_PrevMethod = "[ Previous method"
+let g:WhichKeyDesc_NextMethod = "] Next method"
+
 " Collapsing & Expanding
 map <C-[> <Action>(CollapseRegion)
 map <C-]> <Action>(ExpandRegion)
-" Comment
-map <leader>c <Action>(CommentByLineComment)
-map <leader>C <Action>(CommentByBlockComment)
-" open terminal
+let g:WhichKeyDesc_CollapseRegion = "<C-[> Collapse region"
+let g:WhichKeyDesc_ExpandRegion = "<C-]> Expand region"
+
+" [C]omment
+map <C-/> <Action>(CommentByLineComment)<Up>
+map <C-S-/> <Action>(CommentByBlockComment)
+
+" Open terminal
 map <leader><CR> <Action>(ActivateTerminalToolWindow)
-" close active window
+let g:WhichKeyDesc_OpenTerminal = "<leader><Enter> Open terminal"
+
+" Close active window
 map <leader>q <Action>(HideActiveWindow)
+let g:WhichKeyDesc_CloseWindow = "<leader>q Close window"
 
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 
@@ -90,5 +155,6 @@ Plug 'tpope/vim-commentary'
 " Nerdtree
 Plug 'preservim/nerdtree'
 nnoremap <leader>p :NERDTreeToggle<CR>
+let g:WhichKeyDesc_NerdTreeToggle = "<leader>p Toggle project tree window"
 " Surround
 Plug 'tpope/vim-surround'
