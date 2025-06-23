@@ -39,8 +39,8 @@ let g:WhichKeyDesc_Window = '<C-w> [W]indow management'
 let g:WhichKeyDesc_WindowClose = '<C-w>q Close window'
 
 " Indentation
-map > <action>(editorindentlineorselection)
-map < <action>(editorunindentselection)
+map > <action>(EditorIndentLineOrSelection)
+map < <action>(EditorUnindentSelection)
 
 " [Z]en
 map <leader>z <Action>(ToggleDistractionFreeMode)
@@ -58,46 +58,45 @@ let g:WhichKeyDesc_TabClose = '<leader>tc [C]lose current tab'
 let g:WhichKeyDesc_TabCloseInactive = '<leader>tC [C]lose all inactive tabs'
 
 " [N]ew
-map <leader>n <Action>(Generate)
-let g:WhichKeyDesc_New = '<leader>n [N]ew code'
+map <leader>nn <Action>(Generate)
+let g:WhichKeyDesc_New = '<leader>n [N]ew'
+let g:WhichKeyDesc_NewMenu = '<leader>nn [N]ew'
 
 " [S]how info
-map <leader>se <Action>(ShowHoverInfo)
+map <leader>sI <Action>(ShowHoverInfo)
 map <leader>si <Action>(ShowIntentionActions)
-map <leader>sd <Action>(ShowHoverInfo)
 map <leader>ss <Action>(FileStructurePopup)
 map <leader>su <Action>(ShowUsages)
 let g:WhichKeyDesc_Show = '<leader>s [S]how information'
-let g:WhichKeyDesc_ShowErrorDescription = '<leader>se [S]how [E]rror description'
+let g:WhichKeyDesc_ShowInfo = '<leader>sI [S]how [I]nfo'
 let g:WhichKeyDesc_ShowIntentionActions = '<leader>si [S]how [I]ntention actions'
-let g:WhichKeyDesc_ShowQuickJavaDoc = '<leader>sd [S]how [D]ocumentation'
 let g:WhichKeyDesc_ShowFileStructure = '<leader>ss [S]how file [S]tructure'
 let g:WhichKeyDesc_ShowUsages = '<leader>su [S]how [U]sages'
 
-imap <C-d> <Action>(QuickJavaDoc)
+imap <C-i> <Action>(ShowHoverInfo)
 
 " [G]o to
 map <leader>gd <Action>(GotoDeclaration)
-map <leader>gt <Action>(GotoTypeDeclaration)
+map <leader>gT <Action>(GotoTypeDeclaration)
 map <leader>gs <Action>(GotoSuperMethod)
 map <leader>gi <Action>(GotoImplementation)
-map <leader>gT <Action>(GotoTest)
+map <leader>gt <Action>(GotoTest)
 map <leader>gf <Action>(GotoFile)
 map <leader>gr <Action>(RecentFiles)
 map <leader>gR <Action>(RecentChangedFiles)
 map <leader>gg <Action>(Switcher)
-map <leader>ge <Action>(ActivateProblemsViewToolWindow)
+map <leader>gp <Action>(ActivateProblemsViewToolWindow)
 let g:WhichKeyDesc_GoTo = '<leader>g [G]o to'
 let g:WhichKeyDesc_GoToDeclaration = '<leader>gd [G]o to [D]eclaration'
-let g:WhichKeyDesc_GoToTypeDeclaration = '<leader>gt [G]o to [T]ype declaration'
+let g:WhichKeyDesc_GoToTypeDeclaration = '<leader>gT [G]o to [T]ype declaration'
 let g:WhichKeyDesc_GoToSuperMethod = '<leader>gs [G]o to [S]uper method'
 let g:WhichKeyDesc_GoToImplementation = '<leader>gi [G]o to [I]mplementation'
-let g:WhichKeyDesc_GoToTest = '<leader>gT [G]o to [T]est'
+let g:WhichKeyDesc_GoToTest = '<leader>gt [G]o to [T]est'
 let g:WhichKeyDesc_GoToFile = '<leader>gf [G]o to [F]ile'
-let g:WhichKeyDesc_GoToRecentFiles = '<leader>gr [G]o to [R]ecent files'
-let g:WhichKeyDesc_GoToRecentChangedFiles = '<leader>gR [G]o to [R]ecent changed files'
+let g:WhichKeyDesc_GoToRecentFiles = '<leader>gr [G]o to [R]ecent file'
+let g:WhichKeyDesc_GoToRecentChangedFiles = '<leader>gR [G]o to [R]ecently changed file'
 let g:WhichKeyDesc_GoToSwitcher = '<leader>gg [G]o to switcher'
-let g:WhichKeyDesc_GoToError = '<leader>ge [G]o to [E]rror list'
+let g:WhichKeyDesc_GoToError = '<leader>gp [G]o to [P]roblem'
 
 " [R]efactoring
 map <leader>rr <Action>(Refactorings.QuickListPopupAction)
@@ -137,7 +136,7 @@ vmap gc <Action>(CommentByLineComment)
 vmap gC <Action>(CommentByBlockComment)
 
 " Open terminal
-map <leader><CR> <Action>(ActivateTerminalToolWindow) \| <Action>(HideActiveWindow)
+map <leader><CR> <Action>(ActivateTerminalToolWindow) 
 let g:WhichKeyDesc_CloseBuild = '<leader><Enter> Close build/run window'
 
 " Close active window
@@ -152,6 +151,14 @@ xmap X <Plug>(Exchange)
 nmap gxc <Plug>(ExchangeClear)
 nmap gxx <Plug>(ExchangeLine)
 
+" Mini.surround
+nmap sa <Plug>YSurround
+nmap sd <Plug>DSurround
+nmap sr <Plug>CSurround
+let g:WhichKeyDesc_Surround = 's [S]urround'
+let g:WhichKeyDesc_SurroundAdd = 'sa [S]urround [A]dd'
+let g:WhichKeyDesc_SurroundDelete = 'sd [S]urround [D]elete'
+let g:WhichKeyDesc_SurroundReplace = 'sr [S]urround [R]eplace'
 
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 
@@ -171,6 +178,5 @@ set functiontextobj
 Plug 'vim-matchit'
 set mini-ai
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'justinmk/vim-sneak'
 Plug 'vim-scripts/argtextobj.vim'
 let g:argtextobj_pairs="(:),{:},<:>"
