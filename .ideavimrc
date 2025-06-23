@@ -35,20 +35,12 @@ imap <C-y> <Action>(EditorChooseLookupItem)
 
 " [W]indow management
 map <C-w>q <Action>(Unsplit)
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
 let g:WhichKeyDesc_Window = '<C-w> [W]indow management'
 let g:WhichKeyDesc_WindowClose = '<C-w>q Close window'
-let g:WhichKeyDesc_WindowLeft = '<C-h> Move to left window'
-let g:WhichKeyDesc_WindowDown = '<C-j> Move to down window'
-let g:WhichKeyDesc_WindowUp = '<C-k> Move to up window'
-let g:WhichKeyDesc_WindowRight = '<C-l> Move to right window'
 
 " Indentation
-map <Tab> <Action>(EditorIndentLineOrSelection)
-map <S-Tab> <Action>(EditorUnindentSelection)
+map > <action>(editorindentlineorselection)
+map < <action>(editorunindentselection)
 
 " [Z]en
 map <leader>z <Action>(ToggleDistractionFreeMode)
@@ -70,9 +62,9 @@ map <leader>n <Action>(Generate)
 let g:WhichKeyDesc_New = '<leader>n [N]ew code'
 
 " [S]how info
-map <leader>se <Action>(ShowErrorDescription)
+map <leader>se <Action>(ShowHoverInfo)
 map <leader>si <Action>(ShowIntentionActions)
-map <leader>sd <Action>(QuickJavaDoc)
+map <leader>sd <Action>(ShowHoverInfo)
 map <leader>ss <Action>(FileStructurePopup)
 map <leader>su <Action>(ShowUsages)
 let g:WhichKeyDesc_Show = '<leader>s [S]how information'
@@ -94,6 +86,7 @@ map <leader>gf <Action>(GotoFile)
 map <leader>gr <Action>(RecentFiles)
 map <leader>gR <Action>(RecentChangedFiles)
 map <leader>gg <Action>(Switcher)
+map <leader>ge <Action>(ActivateProblemsViewToolWindow)
 let g:WhichKeyDesc_GoTo = '<leader>g [G]o to'
 let g:WhichKeyDesc_GoToDeclaration = '<leader>gd [G]o to [D]eclaration'
 let g:WhichKeyDesc_GoToTypeDeclaration = '<leader>gt [G]o to [T]ype declaration'
@@ -104,10 +97,14 @@ let g:WhichKeyDesc_GoToFile = '<leader>gf [G]o to [F]ile'
 let g:WhichKeyDesc_GoToRecentFiles = '<leader>gr [G]o to [R]ecent files'
 let g:WhichKeyDesc_GoToRecentChangedFiles = '<leader>gR [G]o to [R]ecent changed files'
 let g:WhichKeyDesc_GoToSwitcher = '<leader>gg [G]o to switcher'
+let g:WhichKeyDesc_GoToError = '<leader>ge [G]o to [E]rror list'
 
 " [R]efactoring
-map <leader>r <Action>(Refactorings.QuickListPopupAction)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+map <leader>rn <Action>(RenameElement)
 let g:WhichKeyDesc_Refactoring = '<leader>r [R]efactor'
+let g:WhichKeyDesc_RefactoringMenu = '<leader>rr [R]efactor menu'
+let g:WhichKeyDesc_RefactoringMenu = '<leader>rn [R]efactor re[N]ame'
 
 " [A]pplication
 map <leader>ar <Action>(Run)
@@ -134,17 +131,27 @@ map <C-]> <Action>(ExpandRegion)
 let g:WhichKeyDesc_CollapseRegion = '<C-[> Collapse region'
 let g:WhichKeyDesc_ExpandRegion = '<C-]> Expand region'
 
-" [C]omment
-map <C-/> <Action>(CommentByLineComment)<Up>
-map <C-S-/> <Action>(CommentByBlockComment)
+" Comment
+nmap gcc <Action>(CommentByLineComment)<Up>
+vmap gc <Action>(CommentByLineComment)
+vmap gC <Action>(CommentByBlockComment)
 
 " Open terminal
-map <leader><CR> <Action>(ActivateTerminalToolWindow)
-let g:WhichKeyDesc_OpenTerminal = '<leader><Enter> Open terminal'
+map <leader><CR> <Action>(ActivateTerminalToolWindow) \| <Action>(HideActiveWindow)
+let g:WhichKeyDesc_CloseBuild = '<leader><Enter> Close build/run window'
 
 " Close active window
 map <leader>q <Action>(HideActiveWindow)
 let g:WhichKeyDesc_CloseWindow = '<leader>q Close window'
+
+" Nvim plugins keymaps
+
+" Mini.operators
+nmap gx <Plug>(Exchange)
+xmap X <Plug>(Exchange)
+nmap gxc <Plug>(ExchangeClear)
+nmap gxx <Plug>(ExchangeLine)
+
 
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 
@@ -165,4 +172,5 @@ Plug 'vim-matchit'
 set mini-ai
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'justinmk/vim-sneak'
-
+Plug 'vim-scripts/argtextobj.vim'
+let g:argtextobj_pairs="(:),{:},<:>"
