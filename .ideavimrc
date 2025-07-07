@@ -59,6 +59,7 @@ let g:WhichKeyDesc_TabCloseInactive = '<leader>tC [C]lose all inactive tabs'
 
 " [N]ew
 map <leader>nn <Action>(Generate)
+map <leader>no <Action>(OverrideMethods)
 let g:WhichKeyDesc_New = '<leader>n [N]ew'
 let g:WhichKeyDesc_NewMenu = '<leader>nn [N]ew'
 
@@ -164,7 +165,7 @@ let g:WhichKeyDesc_SurroundReplace = 'sr [S]urround [R]eplace'
 
 Plug 'machakann/vim-highlightedyank'
 set NERDTree
-nnoremap <leader>p :NERDTreeToggle<CR>
+nnoremap <leader>p :NERDTree<CR>
 let g:NERDTreeMapOpenSplit = 's'
 let g:NERDTreeMapPreviewSplit = 'gs'
 let g:NERDTreeMapOpenVSplit = ''
