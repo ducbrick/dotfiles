@@ -19,7 +19,6 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 --vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 --vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
-vim.keymap.set("n", ">", ">>", { noremap = true })
-vim.keymap.set("n", "<", "<<", { noremap = true })
-vim.keymap.set("v", ">", ">gv", { noremap = true })
-vim.keymap.set("v", "<", "<gv", { noremap = true })
+vim.keymap.set("n", "<leader>e", function() 
+	vim.diagnostic.open_float(0, {scope="line"})
+end)

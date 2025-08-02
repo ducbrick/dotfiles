@@ -29,6 +29,10 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+import os
+import subprocess
+from libqtile import hook
+
 ####################################################################################################
 #                                                                                                  # 
 # █▄▀ █▀▀ █▄█ █▄▄ █ █▄ █ █▀▄ █▀                                                                    #
@@ -418,6 +422,11 @@ reconfigure_screens = True
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/.config/qtile/autostart.sh')
+    subprocess.call(home)
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the

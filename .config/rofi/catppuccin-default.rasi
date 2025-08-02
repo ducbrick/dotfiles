@@ -10,7 +10,7 @@ window {
     background-color: @base-transparent;
     border: 2px;
     border-color: @pink;
-    border-radius: 15px;
+    border-radius: 0px;
     width: 850px;
 }
 mainbox {
@@ -26,7 +26,7 @@ prompt {
     text-color: @base;
     background-color: @pink;
     padding: 5px 5px 5px 15px;
-    border-radius: 15px 0px 0px 15px;
+    border-radius: 0px 0px 0px 0px;
 }
 textbox-prompt-colon {
     expand: false;
@@ -67,7 +67,7 @@ listview {
 }
 element {
     padding: 5px;
-    border-radius: 15px;
+    border-radius: 0px;
 }
 element normal {
     text-color: @text;
