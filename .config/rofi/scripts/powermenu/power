@@ -1,0 +1,30 @@
+#!/usr/bin/fish
+
+set poweroff "⏻  Poweroff  ⏻"
+set reboot "  Restart  "
+set suspend "󰒲  Suspend  󰒲"
+set logout "󰍃  Logout  󰍃"
+set lock "   Lock   "
+
+set style "~/.config/rofi/scripts/powermenu/style.rasi"
+
+set choice (echo -en "$lock\n$suspend\n$poweroff\n$reboot\n$logout" | rofi -dmenu -theme "$style")
+
+if test "$status" = 1
+	exit 0
+end
+
+switch "$choice"
+	case "$poweroff"
+		shutdown now
+	case "$reboot"
+		shutdown -r now
+	case "$suspend"
+		pactl set-sink-volume 0 0%
+		playerctl pause
+		systemctl suspend
+	case "$logout"
+		pkill -KILL -u "$USER"
+	case "$lock"
+		betterlockscreen -l blur
+end

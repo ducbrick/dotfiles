@@ -43,6 +43,10 @@ from libqtile import hook
 mod = "mod4"
 terminal = "alacritty"
 
+def powermenu():
+    menu = os.path.expanduser('~/.config/rofi/scripts/powermenu/power')
+    subprocess.call(menu)
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -96,9 +100,6 @@ keys = [
 
     # Reload config
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-
-    # Quit
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
     # Launch app
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Launch an application"),
@@ -237,7 +238,7 @@ extra_space = widget.Spacer(length = 10,
                             background = colors['Pink'])
 power_button = widget.Image(filename = '~/.config/qtile/icons/power.png',
                             background = colors['Pink'],
-                            mouse_callbacks = {'Button1': lazy.spawn('xfce4-session-logout')},)
+                            mouse_callbacks = {'Button1': powermenu},)
 pink_peach = widget.TextBox(text = '\uE0B0', 
                             background = colors['Peach'], 
                             foreground = colors['Pink'], 
@@ -425,8 +426,8 @@ auto_minimize = True
 
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/.config/qtile/autostart.sh')
-    subprocess.call(home)
+    autostart = os.path.expanduser('~/.config/qtile/autostart.sh')
+    subprocess.call(autostart)
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the
