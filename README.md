@@ -16,8 +16,9 @@
 + **psutil**: Required for Qtile's CPU widget
 + **xfsettingsd**: XFCE's settings daemon (convenient to have)
 + **dunst**: Notification daemon
++ **XFCE4 Power Manager**: Power manager from the XFCE DE
 
 # Important notes
 
 + Dependencies with an asterist(*) should be built from source
-+ `chmod +x` the following files: `.config/qtile/autostart.sh`
++ `chmod +x` the following files: `.config/qtile/autostart.sh`, `.config/rofi/scripts/powermenu/power`
