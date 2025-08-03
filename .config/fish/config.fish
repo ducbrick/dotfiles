@@ -10,4 +10,6 @@ if status is-interactive
 	set --universal tide_time_bg_color green
 
 	set -gx EDITOR nvim
+
+	fish_add_path /home/ducbrick/.local/bin
 end

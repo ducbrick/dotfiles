@@ -2,7 +2,6 @@
 
 # Dependencies
 
-+ **XFCE4**: Desktop environment
 + ***Qtile**: Window manager
 + ***Picom**: Compositor
 + **pactl**: Volume control
@@ -15,3 +14,10 @@
 + **dbus-fast** (or dbus-next): Required for Qtile's StatusNotifier widget
 + **dbus-next**: Required for Qtile's Mpris2 widget
 + **psutil**: Required for Qtile's CPU widget
++ **xfsettingsd**: XFCE's settings daemon (convenient to have)
++ **dunst**: Notification daemon
+
+# Important notes
+
++ Dependencies with an asterist(*) should be built from source
++ `chmod +x` the following files: `.config/qtile/autostart.sh`
