@@ -9,7 +9,16 @@ if status is-interactive
 	set --universal tide_pwd_color_truncated_dirs brblack
 	set --universal tide_time_bg_color green
 
-	set -gx EDITOR nvim
-
 	fish_add_path /home/ducbrick/.local/bin
+
+	zoxide init fish | source
+end
+
+function yaz
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if read -z cwd < "$tmp"; and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		builtin cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
 end
