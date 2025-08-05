@@ -17,8 +17,10 @@
 + **xfsettingsd**: XFCE's settings daemon (convenient to have)
 + **dunst**: Notification daemon
 + **XFCE4 Power Manager**: Power manager from the XFCE DE
++ ***Neovim**
++ ***Yazi**
 
 # Important notes
 
-+ Dependencies with an asterist(*) should be built from source
++ Dependencies with an asterist(*) should be of the latest version
 + `chmod +x` the following files: `.config/qtile/autostart.sh`, `.config/rofi/scripts/powermenu/power`
