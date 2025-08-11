@@ -6,8 +6,6 @@ return {
 			require('competitest').setup({
 				maximum_time = 1500,
 
-				received_contests_directory = "$(HOME)/Code/Personal/CP/$(JUDGE)",
-				received_contests_problems_path = "$(HOME)/Code/Personal/CP/$(JUDGE)/$(PROBLEM)/main.$(FEXT)",
 				received_problems_path = "$(HOME)/Code/Personal/CP/$(JUDGE)/$(PROBLEM)/main.$(FEXT)",
 
 				evaluate_template_modifiers = true,
