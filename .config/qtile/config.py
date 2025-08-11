@@ -43,7 +43,8 @@ from libqtile import hook
 mod = "mod4"
 terminal = "alacritty"
 
-def powermenu():
+@lazy.function
+def powermenu(qtile):
     menu = os.path.expanduser('~/.config/rofi/scripts/powermenu/power')
     subprocess.call(menu)
 
@@ -56,7 +57,8 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([mod], "space", lazy.layout.next(), desc="Move window focus to next window"),
+    Key([mod, "shift"], "space", lazy.layout.previous(), desc="Move window focus to previous window"),
 
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
@@ -75,6 +77,8 @@ keys = [
 
     # Launch terminal
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+
+    Key([mod], "q", powermenu, desc="Power Menu"),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
