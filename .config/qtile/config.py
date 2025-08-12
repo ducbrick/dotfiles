@@ -183,7 +183,7 @@ layout_config = {
     'border_focus': colors['Pink'],
     'border_normal': colors['Base'],
     'border_on_single': True,
-    'border_width': 2,
+    'border_width': 4,
     'margin': 5,
 
 }
