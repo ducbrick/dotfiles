@@ -38,40 +38,37 @@ map <C-w>q <Action>(Unsplit)
 let g:WhichKeyDesc_Window = '<C-w> [W]indow management'
 let g:WhichKeyDesc_WindowClose = '<C-w>q Close window'
 
-" Indentation
-map > <action>(EditorIndentLineOrSelection)
-map < <action>(EditorUnindentSelection)
-
 " [Z]en
 map <leader>z <Action>(ToggleDistractionFreeMode)
 let g:WhichKeyDesc_Zen = '<leader>z Toggle Zen mode'
 
 " [T]abs
-map <leader>th <Action>(PreviousTab)
-map <leader>tl <Action>(NextTab)
-map <leader>tc <Action>(CloseContent)
-map <leader>tC <Action>(CloseAllEditorsButActive)
-let g:WhichKeyDesc_Tab = '<leader>t [T]ab management'
-let g:WhichKeyDesc_TabNext = '<leader>tl Next tab'
-let g:WhichKeyDesc_TabPrevious = '<leader>th Previous tab'
-let g:WhichKeyDesc_TabClose = '<leader>tc [C]lose current tab'
-let g:WhichKeyDesc_TabCloseInactive = '<leader>tC [C]lose all inactive tabs'
+" map <leader>th <Action>(PreviousTab)
+" map <leader>tl <Action>(NextTab)
+" map <leader>tc <Action>(CloseContent)
+" map <leader>tC <Action>(CloseAllEditorsButActive)
+" let g:WhichKeyDesc_Tab = '<leader>t [T]ab management'
+" let g:WhichKeyDesc_TabNext = '<leader>tl Next tab'
+" let g:WhichKeyDesc_TabPrevious = '<leader>th Previous tab'
+" let g:WhichKeyDesc_TabClose = '<leader>tc [C]lose current tab'
+" let g:WhichKeyDesc_TabCloseInactive = '<leader>tC [C]lose all inactive tabs'
 
 " [N]ew
 map <leader>nn <Action>(Generate)
 map <leader>no <Action>(OverrideMethods)
 let g:WhichKeyDesc_New = '<leader>n [N]ew'
 let g:WhichKeyDesc_NewMenu = '<leader>nn [N]ew'
+let g:WhichKeyDesc_NewOverride = '<leader>no [N]ew [O]verridden methods'
 
 " [S]how info
-map <leader>sI <Action>(ShowHoverInfo)
-map <leader>si <Action>(ShowIntentionActions)
+map <leader>si <Action>(ShowHoverInfo)
+map <leader>sa <Action>(ShowIntentionActions)
 map <leader>ss <Action>(FileStructurePopup)
 map <leader>su <Action>(ShowUsages)
 let g:WhichKeyDesc_Show = '<leader>s [S]how information'
-let g:WhichKeyDesc_ShowInfo = '<leader>sI [S]how [I]nfo'
-let g:WhichKeyDesc_ShowIntentionActions = '<leader>si [S]how [I]ntention actions'
-let g:WhichKeyDesc_ShowFileStructure = '<leader>ss [S]how file [S]tructure'
+let g:WhichKeyDesc_ShowInfo = '<leader>si [S]how [I]nfo'
+let g:WhichKeyDesc_ShowIntentionActions = '<leader>sa [S]how [A]ctions'
+let g:WhichKeyDesc_ShowFileStructure = '<leader>ss [S]how [S]tructure'
 let g:WhichKeyDesc_ShowUsages = '<leader>su [S]how [U]sages'
 
 imap <C-i> <Action>(ShowHoverInfo)
@@ -83,6 +80,7 @@ map <leader>gs <Action>(GotoSuperMethod)
 map <leader>gi <Action>(GotoImplementation)
 map <leader>gt <Action>(GotoTest)
 map <leader>gf <Action>(GotoFile)
+map <leader>gs <Action>(FindInPath)
 map <leader>gr <Action>(RecentFiles)
 map <leader>gR <Action>(RecentChangedFiles)
 map <leader>gg <Action>(Switcher)
@@ -94,6 +92,7 @@ let g:WhichKeyDesc_GoToSuperMethod = '<leader>gs [G]o to [S]uper method'
 let g:WhichKeyDesc_GoToImplementation = '<leader>gi [G]o to [I]mplementation'
 let g:WhichKeyDesc_GoToTest = '<leader>gt [G]o to [T]est'
 let g:WhichKeyDesc_GoToFile = '<leader>gf [G]o to [F]ile'
+let g:WhichKeyDesc_GoToSymbol = '<leader>gs [G]o to [S]ymbol'
 let g:WhichKeyDesc_GoToRecentFiles = '<leader>gr [G]o to [R]ecent file'
 let g:WhichKeyDesc_GoToRecentChangedFiles = '<leader>gR [G]o to [R]ecently changed file'
 let g:WhichKeyDesc_GoToSwitcher = '<leader>gg [G]o to switcher'
@@ -138,7 +137,7 @@ vmap gC <Action>(CommentByBlockComment)
 
 " Open terminal
 map <leader><CR> <Action>(ActivateTerminalToolWindow) 
-let g:WhichKeyDesc_CloseBuild = '<leader><Enter> Close build/run window'
+let g:WhichKeyDesc_CloseBuild = '<leader><Enter> Activate terminal'
 
 " Close active window
 map <leader>q <Action>(HideActiveWindow)
