@@ -20,7 +20,7 @@ switch "$choice"
 	case "$reboot"
 		shutdown -r now
 	case "$suspend"
-		pactl set-sink-volume 0 0%
+		pactl set-sink-mute 0 1
 		playerctl pause
 		systemctl suspend
 	case "$logout"
