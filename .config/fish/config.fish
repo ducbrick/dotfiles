@@ -11,9 +11,10 @@ if status is-interactive
 
 	fish_add_path /home/ducbrick/.local/bin
 
+	set -x EDITOR nvim
+
 	zoxide init fish | source
 
-	set -x EDITOR nvim
 end
 
 function yaz

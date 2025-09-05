@@ -11,8 +11,6 @@ return {
 		},
 	},
 
-	"saghen/blink.cmp",
-
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -77,8 +75,8 @@ return {
 
 			local ensure_installed = vim.tbl_keys(servers or {})
 
-			require("mason-tool-installer").setup({ 
-				ensure_installed = ensure_installed 
+			require("mason-tool-installer").setup({
+				ensure_installed = ensure_installed
 			})
 
 			require("mason-lspconfig").setup({

@@ -42,17 +42,6 @@ let g:WhichKeyDesc_WindowClose = '<C-w>q Close window'
 map <leader>z <Action>(ToggleDistractionFreeMode)
 let g:WhichKeyDesc_Zen = '<leader>z Toggle Zen mode'
 
-" [T]abs
-" map <leader>th <Action>(PreviousTab)
-" map <leader>tl <Action>(NextTab)
-" map <leader>tc <Action>(CloseContent)
-" map <leader>tC <Action>(CloseAllEditorsButActive)
-" let g:WhichKeyDesc_Tab = '<leader>t [T]ab management'
-" let g:WhichKeyDesc_TabNext = '<leader>tl Next tab'
-" let g:WhichKeyDesc_TabPrevious = '<leader>th Previous tab'
-" let g:WhichKeyDesc_TabClose = '<leader>tc [C]lose current tab'
-" let g:WhichKeyDesc_TabCloseInactive = '<leader>tC [C]lose all inactive tabs'
-
 " [N]ew
 map <leader>nn <Action>(Generate)
 map <leader>no <Action>(OverrideMethods)
@@ -61,42 +50,36 @@ let g:WhichKeyDesc_NewMenu = '<leader>nn [N]ew'
 let g:WhichKeyDesc_NewOverride = '<leader>no [N]ew [O]verridden methods'
 
 " [S]how info
-map <leader>si <Action>(ShowHoverInfo)
 map <leader>sa <Action>(ShowIntentionActions)
-map <leader>ss <Action>(FileStructurePopup)
-map <leader>su <Action>(ShowUsages)
 let g:WhichKeyDesc_Show = '<leader>s [S]how information'
-let g:WhichKeyDesc_ShowInfo = '<leader>si [S]how [I]nfo'
 let g:WhichKeyDesc_ShowIntentionActions = '<leader>sa [S]how [A]ctions'
-let g:WhichKeyDesc_ShowFileStructure = '<leader>ss [S]how [S]tructure'
-let g:WhichKeyDesc_ShowUsages = '<leader>su [S]how [U]sages'
-
-imap <C-i> <Action>(ShowHoverInfo)
 
 " [G]o to
 map <leader>gd <Action>(GotoDeclaration)
-map <leader>gT <Action>(GotoTypeDeclaration)
+map <leader>gt <Action>(GotoTypeDeclaration)
 map <leader>gs <Action>(GotoSuperMethod)
 map <leader>gi <Action>(GotoImplementation)
-map <leader>gt <Action>(GotoTest)
+map <leader>gT <Action>(GotoTest)
 map <leader>gf <Action>(GotoFile)
 map <leader>gs <Action>(FindInPath)
-map <leader>gr <Action>(RecentFiles)
-map <leader>gR <Action>(RecentChangedFiles)
+map <leader>gb <Action>(RecentFiles)
+map <leader>gB <Action>(RecentChangedFiles)
 map <leader>gg <Action>(Switcher)
 map <leader>gp <Action>(ActivateProblemsViewToolWindow)
+map <leader>gr <Action>(ShowUsages)
 let g:WhichKeyDesc_GoTo = '<leader>g [G]o to'
 let g:WhichKeyDesc_GoToDeclaration = '<leader>gd [G]o to [D]eclaration'
-let g:WhichKeyDesc_GoToTypeDeclaration = '<leader>gT [G]o to [T]ype declaration'
+let g:WhichKeyDesc_GoToTypeDeclaration = '<leader>gt [G]o to [T]ype declaration'
 let g:WhichKeyDesc_GoToSuperMethod = '<leader>gs [G]o to [S]uper method'
 let g:WhichKeyDesc_GoToImplementation = '<leader>gi [G]o to [I]mplementation'
-let g:WhichKeyDesc_GoToTest = '<leader>gt [G]o to [T]est'
+let g:WhichKeyDesc_GoToTest = '<leader>gT [G]o to [T]est'
 let g:WhichKeyDesc_GoToFile = '<leader>gf [G]o to [F]ile'
 let g:WhichKeyDesc_GoToSymbol = '<leader>gs [G]o to [S]ymbol'
-let g:WhichKeyDesc_GoToRecentFiles = '<leader>gr [G]o to [R]ecent file'
-let g:WhichKeyDesc_GoToRecentChangedFiles = '<leader>gR [G]o to [R]ecently changed file'
+let g:WhichKeyDesc_GoToRecentFiles = '<leader>gb [G]o to recent [B]uffer'
+let g:WhichKeyDesc_GoToRecentChangedFiles = '<leader>gB [G]o to recently changed [B]uffer'
 let g:WhichKeyDesc_GoToSwitcher = '<leader>gg [G]o to switcher'
 let g:WhichKeyDesc_GoToError = '<leader>gp [G]o to [P]roblem'
+let g:WhichKeyDesc_GoToRef = '<leader>gr [G]o to [R]eference'
 
 " [R]efactoring
 map <leader>rr <Action>(Refactorings.QuickListPopupAction)
@@ -117,18 +100,6 @@ let g:WhichKeyDesc_ApplicationStop = '<leader>as [A]pplication [S]top'
 let g:WhichKeyDesc_ApplicationDebug = '<leader>ad [A]pplication [D]ebug'
 let g:WhichKeyDesc_ApplicationRunClass = '<leader>ac [A]pplication run [C]lass'
 let g:WhichKeyDesc_ApplicationChooseRunConfiguration = '<leader>aa Choose run configuration'
-
-" Method navigation
-map [ <Action>(MethodUp)
-map ] <Action>(MethodDown)
-let g:WhichKeyDesc_PrevMethod = '[ Previous method'
-let g:WhichKeyDesc_NextMethod = '] Next method'
-
-" Collapsing & Expanding
-map <C-[> <Action>(CollapseRegion)
-map <C-]> <Action>(ExpandRegion)
-let g:WhichKeyDesc_CollapseRegion = '<C-[> Collapse region'
-let g:WhichKeyDesc_ExpandRegion = '<C-]> Expand region'
 
 " Comment
 nmap gcc <Action>(CommentByLineComment)<Up>
