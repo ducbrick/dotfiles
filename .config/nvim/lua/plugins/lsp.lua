@@ -71,17 +71,23 @@ return {
 			local servers = {
 				clangd = {},
 				lua_ls = {},
+				jdtls = {},
 			}
 
 			local ensure_installed = vim.tbl_keys(servers or {})
 
 			require("mason-tool-installer").setup({
-				ensure_installed = ensure_installed
+				ensure_installed = ensure_installed,
 			})
 
 			require("mason-lspconfig").setup({
 				ensure_installed = {}, -- Handled by mason-tool-installer
 				automatic_installation = false,
+				automatic_enable = {
+					exclude = {
+						"jdtls"
+					}
+				}
 			})
 		end,
 	},

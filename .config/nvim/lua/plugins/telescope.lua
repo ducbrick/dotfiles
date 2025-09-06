@@ -2,12 +2,14 @@ return {
 	'nvim-telescope/telescope.nvim',
 	dependencies = {
 		'nvim-lua/plenary.nvim',
-		{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
+		{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+		"nvim-telescope/telescope-ui-select.nvim"
 	},
 	config = function ()
 
 		require('telescope').setup{
 			defaults = {
+				path_display = {'smart'},
 				mappings = {
 					i = {
 						["<C-h>"] = "which_key"
@@ -15,7 +17,8 @@ return {
 				}
 			},
 			pickers = {
-				-- picker_name = {
+				-- find_files = {
+				-- 	theme = 'dropdown',
 				-- }
 			},
 			extensions = {
@@ -23,6 +26,8 @@ return {
 				-- }
 			}
 		}
+
+		require("telescope").load_extension("ui-select")
 
 		local builtin = require('telescope.builtin')
 

@@ -6,9 +6,15 @@ return {
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 		opts = {
 			ensure_installed = {
+				"java",
 				"cpp",
+				"c",
 				"lua",
+				"vim",
+				"vimdoc",
+				"query",
 				"markdown",
+				"markdown_inline"
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
