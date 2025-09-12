@@ -72,6 +72,7 @@ return {
 				clangd = {},
 				lua_ls = {},
 				jdtls = {},
+				basedpyright = {}
 			}
 
 			local ensure_installed = vim.tbl_keys(servers or {})
