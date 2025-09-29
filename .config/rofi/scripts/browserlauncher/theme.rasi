@@ -1,0 +1,88 @@
+@import "catppuccin-mocha"
+
+* {
+    background-color: inherit;
+    vertical-align: 0.5;
+    transparency: "real";
+}
+
+window {
+    background-color: @base-transparent;
+    border: 2px;
+    border-color: @pink;
+    border-radius: 0px;
+    width: 750px;
+}
+mainbox {
+    background-color: @transparent;
+    padding: 15px;
+    spacing: 15px;
+}
+inputbar {
+    children: ["prompt","textbox-prompt-colon","entry","num-filtered-rows","textbox-num-sep","num-rows"];
+    spacing: 0px;
+}
+prompt {
+    text-color: @base;
+    background-color: @pink;
+    padding: 5px 5px 5px 15px;
+    border-radius: 0px 0px 0px 0px;
+}
+textbox-prompt-colon {
+    expand: false;
+    str: "";
+    text-color: @pink;
+    font: "JetBrainsMono Nerd Font 25";
+}
+entry {
+    text-color: @text;
+    placeholder-color: @overlay0;
+    placeholder: "Type to filter";
+    margin: 0px 15px;
+}
+num-filtered-rows {
+    expand: false;
+    text-color: @overlay0;
+}
+textbox-num-sep {
+    expand: false;
+    str: "/";
+    text-color: @overlay0;
+}
+num-rows {
+    expand: false;
+    text-color: @overlay0;
+}
+message {
+    padding: 20px;
+    border-color: @pink;
+}
+textbox {
+    text-color: @text;
+}
+listview {
+    columns: 1;
+    fixed-height: false;
+    lines: 10;
+}
+element {
+    padding: 5px;
+    border-radius: 0px;
+}
+element normal {
+    text-color: @text;
+}
+element selected {
+    background-color: @pink;
+    text-color: @base;
+}
+element active {
+    background-color: @green;
+    text-color: @base;
+}
+element-icon {
+    size: 1em;
+}
+element-text {
+    text-color: inherit;
+}

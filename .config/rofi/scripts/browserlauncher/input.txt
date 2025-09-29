@@ -1,0 +1,13 @@
+   YouTube|youtube.com
+   Reddit|reddit.com
+   Facebook|facebook.com
+ 󰭹  Zalo|chat.zalo.me
+ 󰚩  ChatGPT|chatgpt.com
+   Pinterest|pinterest.com
+   Gmail|mail.google.com/mail/u/0/ mail.google.com/mail/u/1/ mail.google.com/mail/u/2/
+ 󱨠  VNU UET Portal|portal.uet.vnu.edu.vn/
+   JDK 25 Documentation|docs.oracle.com/en/java/javase/25/docs/api/
+   Spring Framework Documentation|docs.spring.io/spring-framework/reference/index.html docs.spring.io/spring-framework/docs/current/javadoc-api/
+   Spring Data Documentation|docs.spring.io/spring-data/commons/reference/3.5/ docs.spring.io/spring-data/commons/docs/current/api/
+   Spring Security Documentation|docs.spring.io/spring-security/reference/6.5/index.html docs.spring.io/spring-security/site/docs/current/api/
+ ⏻  Spring Boot Documentation|docs.spring.io/spring-boot/index.html docs.spring.io/spring-boot/api/java/index.html

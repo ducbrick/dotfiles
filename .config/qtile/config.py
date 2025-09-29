@@ -48,6 +48,11 @@ def powermenu(qtile):
     menu = os.path.expanduser('~/.config/rofi/scripts/powermenu/power')
     subprocess.call(menu)
 
+@lazy.function
+def browserlauncher(qtile):
+    launcher = os.path.expanduser('~/.config/rofi/scripts/browserlauncher/browserlauncher.fish')
+    subprocess.call(launcher)
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -79,6 +84,8 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
     Key([mod], "q", powermenu, desc="Power Menu"),
+
+    Key([mod], "d", browserlauncher, desc="Browser Launcher"),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
