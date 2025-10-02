@@ -13,6 +13,7 @@ if status is-interactive
 	set -x EDITOR nvim
 
 	zoxide init fish | source
+	fzf --fish | source
 
 end
 
@@ -23,4 +24,13 @@ function yaz
 		builtin cd -- "$cwd"
 	end
 	rm -f -- "$tmp"
+end
+
+function zj 
+	set sessions (zellij list-sessions --no-formatting)
+	set chosen (printf '%s\n' $sessions | fzf --prompt='Enter session name: ')
+
+	if test -n "$chosen"
+		zellij attach (string split ' [' "$chosen")[1]
+	end
 end
