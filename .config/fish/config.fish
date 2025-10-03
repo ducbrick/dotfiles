@@ -26,11 +26,22 @@ function yaz
 	rm -f -- "$tmp"
 end
 
-function zj 
+function za
 	set sessions (zellij list-sessions --no-formatting)
 	set chosen (printf '%s\n' $sessions | fzf --prompt='Enter session name: ')
 
 	if test -n "$chosen"
-		zellij attach (string split ' [' "$chosen")[1]
+		zellij attach (string split ' [' $chosen)[1]
+	end
+end
+
+function zd
+	set sessions (zellij list-sessions --no-formatting)
+	set chosens (printf '%s\n' $sessions | fzf --multi --prompt='Enter session name: ')
+
+	for chosen in $chosens
+		set sessionName (string split ' [' "$chosen")[1]
+		zellij kill-session $sessionName
+		zellij delete-session $sessionName
 	end
 end

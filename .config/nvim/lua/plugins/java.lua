@@ -4,7 +4,7 @@ vim.api.nvim_create_autocmd('FileType', {
 		local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 		local workspace_dir = "/home/ducbrick/.jdtls-data/" .. project_name
 		local lombok_dir = "/home/ducbrick/.local/share/nvim/mason/packages/jdtls/lombok.jar"
-		local java_dir = "/home/ducbrick/Softwares/jdk-21/bin/java"
+		local java_dir = "/home/ducbrick/.sdkman/candidates/java/21.0.8-tem/bin/java"
 		local jdtls_dir = "/home/ducbrick/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar"
 		local config_dir = "/home/ducbrick/.local/share/nvim/mason/packages/jdtls/config_linux"
 		local config = {
