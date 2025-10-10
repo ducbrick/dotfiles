@@ -11,4 +11,8 @@ end
 
 set urls (grep -F "$page|" $input_file | cut -d '|' -f2)
 
-firefox -url (string split ' ' $urls) &
+if test -n "$urls"
+	firefox -url (string split ' ' $urls) &
+else
+	firefox --search page
+end

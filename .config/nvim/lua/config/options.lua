@@ -21,7 +21,8 @@ vim.schedule(function()
 	vim.o.clipboard = "unnamedplus"
 end)
 
-vim.o.undofile = true
+vim.o.undofile = false
+vim.o.swapfile = false
 
 vim.o.ignorecase = true
 vim.o.smartcase = true
