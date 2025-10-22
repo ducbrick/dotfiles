@@ -5,6 +5,7 @@
  󰚩  ChatGPT|chatgpt.com
    Github|github.com/ducbrick?tab=repositories
    Github: Data mining report|github.com/ducbrick/data-mining-report
+   Github: Software Architecture project|github.com/ducbrick/bookstore
    Discord|discord.com/channels/@me
    Pinterest|pinterest.com
    Gmail|mail.google.com/mail/u/0/ mail.google.com/mail/u/1/ mail.google.com/mail/u/2/

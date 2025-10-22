@@ -13,6 +13,9 @@ return {
 				"vim",
 				"vimdoc",
 				"query",
+				"html",
+				"yaml",
+				"xml",
 				"markdown",
 				"markdown_inline"
 			},
