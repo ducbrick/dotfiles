@@ -72,6 +72,8 @@ return {
 				clangd = {},
 				lua_ls = {},
 				jdtls = {},
+				tinymist = {},
+
 				basedpyright = {},
 				marksman = {},
 			}

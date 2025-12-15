@@ -40,6 +40,7 @@ return {
 		vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, { desc = '[G]o to [D]efinition' })
 		vim.keymap.set('n', '<leader>gt', builtin.lsp_type_definitions, { desc = '[G]o to [T]ype definition' })
 		vim.keymap.set('n', '<leader>ge', builtin.diagnostics, { desc = '[G]o to [E]rror' })
+		vim.keymap.set('n', '<leader>gg', builtin.live_grep, { desc = '[G]rep [G]o to' })
 
 	end
 }
