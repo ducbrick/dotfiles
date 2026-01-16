@@ -41,7 +41,7 @@ from libqtile import hook
 ####################################################################################################
 
 mod = "mod4"
-terminal = "wezterm"
+terminal = "alacritty"
 
 @lazy.function
 def powermenu(qtile):

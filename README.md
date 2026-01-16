@@ -7,7 +7,7 @@
 + **Picom v12**: Compositor
 + **pactl 16.1**: Volume control
 + **playerctl v2.4.1**: Control currently playing media
-+ **wezterm 20240203-110809-5046fc22**: Terminal emulator
++ **alacritty 0.16.0-dev**: Terminal emulator
 + **fish version 4.0.2**: Shell
 + **fisher version 4.4.5**: Package manager for fish
 + **tide version 6.1.1**: Fish prompt
