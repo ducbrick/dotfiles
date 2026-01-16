@@ -4,11 +4,9 @@
    Instagram|instagram.com
  󰭹  Zalo|chat.zalo.me
  󰚩  ChatGPT|chatgpt.com/?temporary-chat=true
+   Gemini|aistudio.google.com
  󰝖  TODO|rprtr258.github.io/tooda
    Github|github.com/ducbrick?tab=repositories
-   Github: Data mining report|github.com/ducbrick/data-mining-report
-   Github: QA report|github.com/pmint05/checkstyle-report
-   Github: Software Architecture project|github.com/ducbrick/bookstore
    Discord|discord.com/channels/@me
    Pinterest|pinterest.com
    Gmail|mail.google.com/mail/u/0/ mail.google.com/mail/u/1/ mail.google.com/mail/u/2/
