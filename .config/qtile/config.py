@@ -41,7 +41,7 @@ from libqtile import hook
 ####################################################################################################
 
 mod = "mod4"
-terminal = "alacritty"
+terminal = "wezterm"
 
 @lazy.function
 def powermenu(qtile):
@@ -408,7 +408,7 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
-follow_mouse_focus = False
+follow_mouse_focus = True
 bring_front_click = False
 floats_kept_above = True
 cursor_warp = False
@@ -420,6 +420,7 @@ floating_layout = layout.Floating(
         Match(wm_class="makebranch"),  # gitk
         Match(wm_class="maketag"),  # gitk
         Match(wm_class="ssh-askpass"),  # ssh-askpass
+        Match(wm_class="DBeaver"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
         Match(title="Volume Control"),

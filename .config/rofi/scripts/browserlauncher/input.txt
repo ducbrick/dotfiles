@@ -9,6 +9,7 @@
    Github|github.com/ducbrick?tab=repositories
    Discord|discord.com/channels/@me
    Pinterest|pinterest.com
+   Lichess|lichess.org
    Gmail|mail.google.com/mail/u/0/ mail.google.com/mail/u/1/ mail.google.com/mail/u/2/
  󱨠  VNU UET Portal|portal.uet.vnu.edu.vn/
    JDK 25 Documentation|docs.oracle.com/en/java/javase/25/docs/api/

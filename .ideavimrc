@@ -50,9 +50,11 @@ let g:WhichKeyDesc_NewMenu = '<leader>nn [N]ew'
 let g:WhichKeyDesc_NewOverride = '<leader>no [N]ew [O]verridden methods'
 
 " [S]how info
+map <leader>si <Action>(ShowHoverInfo)
 map <leader>sa <Action>(ShowIntentionActions)
 let g:WhichKeyDesc_Show = '<leader>s [S]how information'
 let g:WhichKeyDesc_ShowIntentionActions = '<leader>sa [S]how [A]ctions'
+let g:WhichKeyDesc_ShowInfo = '<leader>si [S]how hover [I]nformation'
 
 " [G]o to
 map <leader>gd <Action>(GotoDeclaration)
