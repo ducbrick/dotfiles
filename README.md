@@ -24,6 +24,6 @@
 # Important notes
 
 + `chmod +x` the following files: 
-    + `.config/qtile/autostart.sh` 
-    + `.config/rofi/scripts/powermenu/power`
-    + `~/.config/rofi/scripts/browserlauncher/browserlauncher.fish`
+    + `./qtile/.config/qtile/autostart.sh`
+    + `./rofi/.config/rofi/scripts/powermenu/power`
+    + `./rofi/.config/rofi/scripts/browserlauncher/browserlauncher.fish`
