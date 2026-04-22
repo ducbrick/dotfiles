@@ -1,0 +1,155 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+" Map leader to space
+let mapleader = ' '
+
+set showmode
+set showcmd
+
+set visualbell
+set scrolloff=10
+set sidescrolloff=20
+set incsearch
+set rnu
+
+set clipboard+=unnamed
+set clipboard+=unnamedplus
+set clipboard+=ideaput
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+set notimeout
+
+nmap <Esc> :nohlsearch<CR>
+
+" --- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+map <C-n> <Down>
+map <C-p> <Up>
+imap <C-y> <Action>(EditorChooseLookupItem)
+
+" [W]indow management
+map <C-w>q <Action>(Unsplit)
+let g:WhichKeyDesc_Window = '<C-w> [W]indow management'
+let g:WhichKeyDesc_WindowClose = '<C-w>q Close window'
+
+" [Z]en
+map <leader>z <Action>(ToggleDistractionFreeMode)
+let g:WhichKeyDesc_Zen = '<leader>z Toggle Zen mode'
+
+" [N]ew
+map <leader>nn <Action>(Generate)
+map <leader>no <Action>(OverrideMethods)
+let g:WhichKeyDesc_New = '<leader>n [N]ew'
+let g:WhichKeyDesc_NewMenu = '<leader>nn [N]ew'
+let g:WhichKeyDesc_NewOverride = '<leader>no [N]ew [O]verridden methods'
+
+" [S]how info
+map <leader>si <Action>(ShowHoverInfo)
+map <leader>sa <Action>(ShowIntentionActions)
+let g:WhichKeyDesc_Show = '<leader>s [S]how information'
+let g:WhichKeyDesc_ShowIntentionActions = '<leader>sa [S]how [A]ctions'
+let g:WhichKeyDesc_ShowInfo = '<leader>si [S]how hover [I]nformation'
+
+" [G]o to
+map <leader>gd <Action>(GotoDeclaration)
+map <leader>gt <Action>(GotoTypeDeclaration)
+map <leader>gs <Action>(GotoSuperMethod)
+map <leader>gi <Action>(GotoImplementation)
+map <leader>gT <Action>(GotoTest)
+map <leader>gf <Action>(GotoFile)
+map <leader>gs <Action>(FindInPath)
+map <leader>gb <Action>(RecentFiles)
+map <leader>gB <Action>(RecentChangedFiles)
+map <leader>gg <Action>(Switcher)
+map <leader>gp <Action>(ActivateProblemsViewToolWindow)
+map <leader>gr <Action>(ShowUsages)
+let g:WhichKeyDesc_GoTo = '<leader>g [G]o to'
+let g:WhichKeyDesc_GoToDeclaration = '<leader>gd [G]o to [D]eclaration'
+let g:WhichKeyDesc_GoToTypeDeclaration = '<leader>gt [G]o to [T]ype declaration'
+let g:WhichKeyDesc_GoToSuperMethod = '<leader>gs [G]o to [S]uper method'
+let g:WhichKeyDesc_GoToImplementation = '<leader>gi [G]o to [I]mplementation'
+let g:WhichKeyDesc_GoToTest = '<leader>gT [G]o to [T]est'
+let g:WhichKeyDesc_GoToFile = '<leader>gf [G]o to [F]ile'
+let g:WhichKeyDesc_GoToSymbol = '<leader>gs [G]o to [S]ymbol'
+let g:WhichKeyDesc_GoToRecentFiles = '<leader>gb [G]o to recent [B]uffer'
+let g:WhichKeyDesc_GoToRecentChangedFiles = '<leader>gB [G]o to recently changed [B]uffer'
+let g:WhichKeyDesc_GoToSwitcher = '<leader>gg [G]o to switcher'
+let g:WhichKeyDesc_GoToError = '<leader>gp [G]o to [P]roblem'
+let g:WhichKeyDesc_GoToRef = '<leader>gr [G]o to [R]eference'
+
+" [R]efactoring
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+map <leader>rn <Action>(RenameElement)
+let g:WhichKeyDesc_Refactoring = '<leader>r [R]efactor'
+let g:WhichKeyDesc_RefactoringMenu = '<leader>rr [R]efactor menu'
+let g:WhichKeyDesc_RefactoringMenu = '<leader>rn [R]efactor re[N]ame'
+
+" [A]pplication
+map <leader>ar <Action>(Run)
+map <leader>as <action>(Stop)
+map <leader>ad <Action>(Debug)
+map <leader>ac <Action>(RunClass)
+map <leader>aa <Action>(ChooseRunConfiguration)
+let g:WhichKeyDesc_Application = '<leader>a [A]pplication'
+let g:WhichKeyDesc_ApplicationRun = '<leader>ar [A]pplication [R]un'
+let g:WhichKeyDesc_ApplicationStop = '<leader>as [A]pplication [S]top'
+let g:WhichKeyDesc_ApplicationDebug = '<leader>ad [A]pplication [D]ebug'
+let g:WhichKeyDesc_ApplicationRunClass = '<leader>ac [A]pplication run [C]lass'
+let g:WhichKeyDesc_ApplicationChooseRunConfiguration = '<leader>aa Choose run configuration'
+
+" Comment
+nmap gcc <Action>(CommentByLineComment)<Up>
+vmap gc <Action>(CommentByLineComment)
+vmap gC <Action>(CommentByBlockComment)
+
+" Open terminal
+map <leader><CR> <Action>(ActivateTerminalToolWindow) 
+let g:WhichKeyDesc_CloseBuild = '<leader><Enter> Activate terminal'
+
+" Close active window
+map <leader>q <Action>(HideActiveWindow)
+let g:WhichKeyDesc_CloseWindow = '<leader>q Close window'
+
+" Nvim plugins keymaps
+
+" Mini.operators
+nmap gx <Plug>(Exchange)
+xmap X <Plug>(Exchange)
+nmap gxc <Plug>(ExchangeClear)
+nmap gxx <Plug>(ExchangeLine)
+
+" Mini.surround
+nmap sa <Plug>YSurround
+nmap sd <Plug>DSurround
+nmap sr <Plug>CSurround
+let g:WhichKeyDesc_Surround = 's [S]urround'
+let g:WhichKeyDesc_SurroundAdd = 'sa [S]urround [A]dd'
+let g:WhichKeyDesc_SurroundDelete = 'sd [S]urround [D]elete'
+let g:WhichKeyDesc_SurroundReplace = 'sr [S]urround [R]eplace'
+
+" --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
+
+Plug 'machakann/vim-highlightedyank'
+set NERDTree
+nnoremap <leader>p :NERDTree<CR>
+let g:NERDTreeMapOpenSplit = 's'
+let g:NERDTreeMapPreviewSplit = 'gs'
+let g:NERDTreeMapOpenVSplit = ''
+let g:NERDTreeMapPreviewVSplit = 'gv'
+let g:WhichKeyDesc_NerdTreeToggle = '<leader>p Toggle project tree window'
+set which-key
+let g:WhichKey_ShowVimActions = "true"
+Plug 'tpope/vim-surround'
+Plug 'tommcdo/vim-exchange'
+set functiontextobj
+Plug 'vim-matchit'
+set mini-ai
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'vim-scripts/argtextobj.vim'
+let g:argtextobj_pairs="(:),{:},<:>"

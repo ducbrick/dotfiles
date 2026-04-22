@@ -1,0 +1,16 @@
+[general]
+import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[terminal]
+shell = "/usr/bin/fish"
+
+[window]
+padding = {x = 15, y = 15}
+opacity = 0.9
+blur = true
+
+[font]
+normal = {family = "JetBrainsMono Nerd Font Mono", style = "Regular"}
+size = 15

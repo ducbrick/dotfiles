@@ -1,0 +1,21 @@
+@theme "catppuccin-default"
+
+window {
+	width: 300px;
+}
+
+mainbox {
+	children: [listview];
+}
+
+listview {
+	columns: 1;
+}
+
+element {
+	children: [element-text];
+}
+
+element-text {
+	horizontal-align: 0.5;
+}
