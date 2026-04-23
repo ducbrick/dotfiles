@@ -27,3 +27,4 @@
     + `./qtile/.config/qtile/autostart.sh`
     + `./rofi/.config/rofi/scripts/powermenu/power`
     + `./rofi/.config/rofi/scripts/browserlauncher/browserlauncher.fish`
+    + `./pomodoro/.local/bin/pomodoro.fish`
