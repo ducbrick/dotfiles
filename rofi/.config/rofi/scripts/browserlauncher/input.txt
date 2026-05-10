@@ -9,10 +9,15 @@
    Github|github.com/ducbrick?tab=repositories
    Github: Web group project|github.com/ducbrick/web-group-project
    Github: Android group project|github.com/ducbrick/android-big-project
+   Github: UI group project|github.com/dinhuet/BuddyTalk
    Discord|discord.com/channels/@me
    Pinterest|pinterest.com
    Lichess|lichess.org
+ 󰿏  Movie reviews|docs.google.com/document/d/1rfAMwXwvNw3w6xRhKbx8lfE0bIAa23RF6ZIdjWdpq6M/edit?tab=t.jbh1fnaogsn3
    Gmail|mail.google.com/mail/u/0/ mail.google.com/mail/u/1/ mail.google.com/mail/u/2/
+   Gmail: hoanghuuduc1108|mail.google.com/mail/u/0/
+   Gmail: ducbrick|mail.google.com/mail/u/1/
+   Gmail: VNU UET|mail.google.com/mail/u/2/
  󱨠  VNU UET Portal|portal.uet.vnu.edu.vn/
    JDK 25 Documentation|docs.oracle.com/en/java/javase/25/docs/api/
  󰒒  Auth0|manage.auth0.com/dashboard/us/ducbrick/
